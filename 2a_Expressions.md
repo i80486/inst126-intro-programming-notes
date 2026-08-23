@@ -14,48 +14,60 @@ kernelspec:
 
 # 2a: Expressions
 
-## Learning goals:
-- Recognize Python expressions
-- Recognize different data type literals
-- Recognize what operators are used for the appropriate data types
-- Recognize TypeErrors and common fixes
+## Learning goals
+
+* Recognize Python expressions
+* Recognize different data type literals
+* Recognize what operators are used for the appropriate data types
+* Recognize TypeErrors and common fixes
 
 ## What are Expressions?
 
-Expressions are a basic building block of programs. They are chunks of Python code that **evaluate to** (yield) some value. 
+Expressions are a basic building block of programs. They are chunks of Python
+code that **evaluate to** (yield) some value.
 
 Here are a simple few examples.
 
 What is 1 added to 1?
+
 ```{code-cell} ipython3
 1 + 1
 ```
 
 What is 3 multiplied by 2?
+
 ```{code-cell} ipython3
 3 * 2
 ```
 
 Is 3 larger than 2?
+
 ```{code-cell} ipython3
 3 > 2
 ```
 
 Here's one that includes multiple expressions
+
 ```{code-cell} ipython3
 3 * 2 + 5
 ```
 
-So far, you may recognize these as basically math. That's good! There's a good amount of overlap between the concept of expressions and what you remember from math.
+So far, you may recognize these as basically math. That's good! There's a good
+amount of overlap between the concept of expressions and what you remember from
+math.
 
-Now let's stretch that prototypical example a bit. Keeping in mind that expressions are chunks of Python code that **evaluate to** (yield) some value, these are also expressions:
+Now let's stretch that prototypical example a bit. Keeping in mind that
+expressions are chunks of Python code that **evaluate to** (yield) some value,
+these are also expressions:
 
 Is 3 the same as 3?
+
 ```{code-cell} ipython3
 3 == 3
 ```
 
 And even this: Evaluate the literal value 1
+
 ```{code-cell} ipython3
 1
 ```
@@ -65,11 +77,15 @@ And even this: Evaluate the literal value 1
 print("Hello world!")
 ``` -->
 
-One heuristic you can use to tell if a chunk of code is an expression or not is to run it by itself in Python's interactive "Read, Evaluate, Print Loop" (REPL) mode. You can access the REPL [in VSCode](https://code.visualstudio.com/docs/python/run) or [in your Terminal or CommandPrompt](https://www.pythonmorsels.com/using-the-python-repl/). If the code yields an output when run by itself, it's an expression.
+One heuristic you can use to tell if a chunk of code is an expression or not is
+to run it by itself in Python's interactive "Read, Evaluate, Print Loop" (REPL)
+mode. You can access the REPL [in VSCode](https://code.visualstudio.com/docs/python/run)
+or [in your Terminal or CommandPrompt](https://www.pythonmorsels.com/using-the-python-repl/).
+If the code yields an output when run by itself, it's an expression.
 
 ## Anatomy of an expression
 
-An expression is built from, at minimum a value.
+An expression is built from, at minimum, a value.
 
 Like `3`, or (as we will later see), a variable that holds a value.
 
@@ -87,10 +103,11 @@ and the operator is `+` (addition).
 
 ### Types of operations
 
-There is a full list of operators [here](https://www.w3schools.com/python/python_operators.asp) (bookmark this!). But for this module, the main ones to focus on are:
+There is a full list of operators [here](https://www.w3schools.com/python/python_operators.asp)
+(bookmark this!). But for this module, the main ones to focus on are:
 
 | Type | Operators | Function | Works with |
-|------|-----------|----------|------------|
+| ------ | ----------- | ---------- | ------------ |
 | Arithmetic | `+` `-` `*` `/` `%` | Do math | `int`, `float` |
 | Concatenation | `+` | Join strings together | `str` |
 | Comparison | `>` `<` `>=` `<=` `==` `!=` | Compare values, yield `True`/`False` | Most types |
@@ -112,14 +129,17 @@ Let's look at some examples together.
 
 #### Comparison operators
 
-These can work with most/any data types. But the result may not always be what you expect!
+These can work with most/any data types. But the result may not always be what
+you expect!
 
 ```{code-cell} ipython3
 "A" != "a"
 ```
 
 #### Logical operators
-These are for logical expressions. You'll find them to be most useful when you work with conditionals
+
+These are for logical expressions. You'll find them to be most useful when you
+work with conditionals.
 
 ```{code-cell} ipython3
 a = 5
@@ -137,7 +157,8 @@ We know we can do this with math.
 3 * (1 + 2)
 ```
 
-And it's also common with logical expressions, which are often built from comparison expressions
+And it's also common with logical expressions, which are often built from
+comparison expressions:
 
 ```{code-cell} ipython3
 # is 3 greater than 2 and less than 10? 
@@ -147,24 +168,32 @@ And it's also common with logical expressions, which are often built from compar
 
 ## Values have *types*
 
-To work with expressions and perform operations on them, Python needs to know what **type** of data they are.
+To work with expressions and perform operations on them, Python needs to know
+what **type** of data they are.
 
 Here are some basic types of data that Python knows out of the box:
-1. `str` - strings, expressed with single quotes `'a'` or double quotes `"a"` (Python doesn't differentiate)
-2. `int` - integer numbers (i.e., no decimals), like `3`. For doing math.
-3. `float` - floating point numbers (i.e., with decimals), like `3.0`. For doing more precise math.
-4. `bool` - boolean (True or False) values. Important for creating logical structures in your programs (like conditionals).
 
-There are (many!) more types of values (including more complex data structures, such as lists, dictionaries, and data frames), but these will be sufficient for at least Module 1.
+1. `str` - strings, expressed with single quotes `'a'` or double quotes `"a"`
+   (Python doesn't differentiate)
+2. `int` - integer numbers (i.e., no decimals), like `3`. For doing math.
+3. `float` - floating point numbers (i.e., with decimals), like `3.0`. For doing
+   more precise math.
+4. `bool` - boolean (True or False) values. Important for creating logical
+   structures in your programs (like conditionals).
+
+There are (many!) more types of values (including more complex data structures,
+such as lists, dictionaries, and data frames), but these will be sufficient for
+at least Module 1.
 
 | Type | Name | Purpose | Literal examples |
-|------|------|---------|------------------|
+| ------ | ------ | --------- | ------------------ |
 | `str` | String | Text data | `"hello"`, `'world'` |
 | `int` | Integer | Whole numbers (math) | `3`, `-42`, `0` |
 | `float` | Floating point | Decimal numbers (precise math) | `3.0`, `-2.5`, `0.001` |
 | `bool` | Boolean | True/False values (logic) | `True`, `False` |
 
-When we give these values to Python by themselves (not stored in a variable), we call them **literals**. Let's look at some examples.
+When we give these values to Python by themselves (not stored in a variable), we
+call them **literals**. Let's look at some examples.
 
 ```{code-cell} ipython3
 :tags: [remove-output]
@@ -196,13 +225,18 @@ When we give these values to Python by themselves (not stored in a variable), we
 True
 ```
 
-Notice how the syntax highlighting helps us recognize the different literals. The exact colors depend on your editor's theme, but different data types will be displayed in different colors or styles. For example, strings (in quotation marks) typically look different from numbers, and boolean values (`True`/`False`) are often styled distinctly as well.
+Notice how the syntax highlighting helps us recognize the different literals.
+The exact colors depend on your editor's theme, but different data types will be
+displayed in different colors or styles. For example, strings (in quotation
+marks) typically look different from numbers, and boolean values
+(`True`/`False`) are often styled distinctly as well.
 
-This color coding can help you manage data types. 
+This color coding can help you manage data types.
 
 Let's practice a little!
 
 Q: What data type is this? Guess and then reveal to check your answer.
+
 ```{code-cell} ipython3
 :tags: [remove-output]
 3
@@ -214,6 +248,7 @@ Q: What data type is this? Guess and then reveal to check your answer.
 ```
 
 Q: What data type is this? Guess and then reveal to check your answer.
+
 ```{code-cell} ipython3
 :tags: [remove-output]
 "3"
@@ -225,6 +260,7 @@ Q: What data type is this? Guess and then reveal to check your answer.
 ```
 
 Q: What data type is this? Guess and then reveal to check your answer.
+
 ```{code-cell} ipython3
 :tags: [remove-output]
 "65"
@@ -236,6 +272,7 @@ Q: What data type is this? Guess and then reveal to check your answer.
 ```
 
 Q: What data type is this? Guess and then reveal to check your answer.
+
 ```{code-cell} ipython3
 :tags: [remove-output]
 65
@@ -247,6 +284,7 @@ Q: What data type is this? Guess and then reveal to check your answer.
 ```
 
 Q: What data type is this? Guess and then reveal to check your answer.
+
 ```{code-cell} ipython3
 :tags: [remove-output]
 "True"
@@ -258,6 +296,7 @@ Q: What data type is this? Guess and then reveal to check your answer.
 ```
 
 Q: What data type is this? Guess and then reveal to check your answer.
+
 ```{code-cell} ipython3
 :tags: [remove-output]
 True
@@ -268,20 +307,26 @@ True
 `boolean`!
 ```
 
-Types are super important, because as we will see next, value types constrain what kinds of operations are valid.
+Types are super important, because as we will see next, value types constrain
+what kinds of operations are valid.
 
 ## Value types constrain operators
 
-As we saw, most commonly, expressions are built from a combination of values and some *operators* that do something with the values. The values in the expression constrain what kinds of operations are valid.
+As we saw, most commonly, expressions are built from a combination of values and
+some *operators* that do something with the values. The values in the expression
+constrain what kinds of operations are valid.
 
-Let's look at an example. Can you predict what the output of this expression will be? Guess then reveal the output.
+Let's look at an example. Can you predict what the output of this expression
+will be? Guess then reveal the output.
 
 ```{code-cell} ipython3
 :tags: [hide-output]
 1 + 2
 ```
 
-What about this? Can you predict what the output of this expression will be? Guess then reveal the output and the explanation.
+What about this? Can you predict what the output of this expression will be?
+Guess then reveal the output and the explanation.
+
 ```{code-cell} ipython3
 :tags: [hide-output]
 "1" + "2"
@@ -292,8 +337,10 @@ What about this? Can you predict what the output of this expression will be? Gue
 The `+` here is *not* addition, but **concatenation** because the data values here are both strings.
 ```
 
-And this? Can you predict what the output of this expression will be? Guess then reveal the output and the explanation.
-```
+And this? Can you predict what the output of this expression will be? Guess then
+reveal the output and the explanation.
+
+```{code-cell} ipython3
 "1" + 2
 ```
 
@@ -302,13 +349,14 @@ And this? Can you predict what the output of this expression will be? Guess then
 You should see an error message! Python doesn't know what to do here, because one of the values is a `str` (which means the `+` is concatenation) and the other is an `int` (which means the `+` is addition)! More on this in the next section.
 ```
 
-## Aside: your first bug!
+## Aside: your first bug
 
 ### The TypeError
 
 Congratulations, you have just encountered your first bug!
 
-When we try to write an expression that creates an invalid combination of operators and values, we get a `TypeError` error message. 
+When we try to write an expression that creates an invalid combination of
+operators and values, we get a `TypeError` error message.
 
 Let's unpack this error message a bit
 
@@ -320,14 +368,21 @@ Let's unpack this error message a bit
 ```
 
 Here, Python is telling us:
+
 1) That there's something wrong with data types here
-2) It's something to do with trying to concatenate a string with something else, and failing because it's an int instead of a string
+2) It's something to do with trying to concatenate a string with something else,
+   and failing because it's an int instead of a string
 3) It's somewhere around the `"1" + 2` expression
 
-These three parts are generally what you look for in an error message to help you figure out what to do to fix what's going on:
+These three parts are generally what you look for in an error message to help
+you figure out what to do to fix what's going on:
+
 1) What type of thing went wrong (this helps narrow the range of potential problems/fixes)
-2) A bit more about what went wrong (often helpful, but sometimes not, depending on how much you know and how helpful the programmers who wrote the error messages are!)
-3) Where the problem was detected (which *may not be where the problem actually is!*)
+2) A bit more about what went wrong (often helpful, but sometimes not, depending
+   on how much you know and how helpful the programmers who wrote the error
+   messages are!)
+3) Where the problem was detected (which *may not be where the problem actually
+   is!*)
 
 ```{image} assets/annotated-error-msg-generic.png
 :alt: typeError
@@ -336,19 +391,32 @@ These three parts are generally what you look for in an error message to help yo
 :align: center
 ```
 
-The bottom bit (type of error (1) and description (2)) is helpful for Googling for fixes. The traceback (3) helps you find the part in your code that *might* be causing an error. 
+The bottom bit (type of error (1) and description (2)) is helpful for Googling
+for fixes. The traceback (3) helps you find the part in your code that *might*
+be causing an error.
 
 ### The (silent) type error
 
-These error messages can be annoying! But they're helpful: this is Python helping us catch bugs before the code runs! 
+These error messages can be annoying! But they're helpful: this is Python
+helping us catch bugs before the code runs!
 
-Unfortunately, we can make mistakes with the values in a way that fails silently, without these error messages. 
+Unfortunately, we can make mistakes with the values in a way that fails
+silently, without these error messages.
 
 For example, if you want to add 1 and 2, and write:
+
 ```{code-cell} ipython3
 "1" + "2"
 ```
 
-This is valid code! And it runs and produces output! But it's *not* what you want. 
+This is valid code! And it runs and produces output! But it's *not* what you want.
 
-In this course, we'll call this sort of error a **semantic error**: it's a mismatch between what you want Python to do, and what you actually told Python to do (which is exactly what it did). This is different from the **runtime error** in the previous example (the `TypeError`, which prevents the code from finishing and yields an error message). We'll discuss debugging in more detail in the next module, but for now, just be aware that bugs can be silent like this. The key idea, which we will expand on later, is to always be mindful of the (potential) difference between 1) what you want to happen, and 2) what Python actually does, which is what produces the output you can see/inspect. 
+In this course, we'll call this sort of error a **logic error**: it's a mismatch
+between what you want Python to do, and what you actually told Python to do
+(which is exactly what it did). This is different from the **runtime error** in
+the previous example (the `TypeError`, which prevents the code from finishing
+and yields an error message). We'll discuss debugging in more detail in the next
+module, but for now, just be aware that bugs can be silent like this. The key
+idea, which we will expand on later, is to always be mindful of the (potential)
+difference between 1) what you want to happen, and 2) what Python actually does,
+which is what produces the output you can see/inspect.
