@@ -547,9 +547,10 @@ print("x is ", x)
 print("x is a ", type(x))
 ```
 
-Let's go back to a common use case for this. Making sure that the data that will go in a math expression are all number types (otherwise we run into issues!)
+Let's go back to a common use case for this. Making sure that the data that will
+go in a math expression are all number types (otherwise we run into issues!)
 
-```
+```{code-cell} ipython3
 # this will produce our TypeError
 x = 3
 y = "2"
@@ -576,19 +577,26 @@ y = "2"
 str(x) + y
 ```
 
-One thing to keep in mind: you can only cast something into a data type if it "looks like" the ["literal"](https://www.geeksforgeeks.org/literals-in-python/) for that data type. Almost anything "looks like" the literal for a string, since you can just slap quotes around it and it becomes a string. But some data types are more fussy about their literals: for example, the literal for an `int` must be a valid set of digits.
+One thing to keep in mind: you can only cast something into a data type if it
+"looks like" the ["literal"](https://www.geeksforgeeks.org/literals-in-python/)
+for that data type. Almost anything "looks like" the literal for a string, since
+you can just slap quotes around it and it becomes a string. But some data types
+are more fussy about their literals: for example, the literal for an `int` must
+be a valid set of digits.
 
 So, for example, this will yield an error:
 
-```
+```{code-cell} ipython3
 int("three")
 ```
 
-Because `"three"` doesn't "look like" the literal for an `int`, you can't turn it into an `int`.
+Because `"three"` doesn't "look like" the literal for an `int`, you can't turn
+it into an `int`.
 
-What do you think will happen with this? Feel free to paste this code into the Python REPL to find out!
+What do you think will happen with this? Feel free to paste this code into the
+Python REPL to find out!
 
-```
+```{code-cell} ipython3
 int("$5,000")
 ```
 
