@@ -17,16 +17,21 @@ kernelspec:
 
 <!-- +++ {"id": "TB-Kg9GExbRz"} -->
 
-## Learning goals:
-- Write Boolean expressions based on English requirements
-- Explain different meta-patterns of conditional blocks (nested, chained, with alternative vs. without)
-- Construct various types of conditional blocks in Python
+## Learning goals
+
+* Write Boolean expressions based on English requirements
+* Explain different meta*patterns of conditional blocks (nested, chained, with
+  alternative vs. without)
+* Construct various types of conditional blocks in Python
 
 <!-- +++ {"id": "g-lkfdphxbR0"} -->
 
 ## What are conditionals and why do we care about them?
 
-Conditionals are an example of the fundamental computational thinking concept of **control flow**: setting up structures in our program to control what happens when. You can think of conditionals as "forks in the road" that control what happens *depending on* whether some conditions are true or false.
+Conditionals are an example of the fundamental computational thinking concept of
+**control flow**: setting up structures in our program to control what happens
+when. You can think of conditionals as "forks in the road" that control what
+happens *depending on* whether some conditions are true or false.
 
 A set of pictures might help to give the intuition:
 
@@ -36,14 +41,20 @@ A set of pictures might help to give the intuition:
 :align: center
 ```
 
-Basically anytime you find yourself at a problem step or part of your problem where you say something like "`do something` *based on / depending on / looking at / if* `some condition`", that is a signal that you need a conditional.
+Basically anytime you find yourself at a problem step or part of your problem
+where you say something like "`do something` *based on / depending on / looking*
+*at / if* `some condition`", that is a signal that you need a conditional.
 
 Here are some examples:
-- decide what to wear: check temperature, check if i'm going to a dress code location
-- shopping: check how much money i have, check quality level of the thing, what i need; decide what to buy
-- decide what to eat: spiciness, taste, price
 
-What are some other real-world examples of this sort of situation that you can think of? 
+* Deciding what to wear: check temperature, check if I'm going to a location
+  with a dress code, look at which outfits are clean.
+* Shopping: check how much money I have, check reviews of what I'm trying to
+  buy, consider what is a need vs a want, and then decide what to buy.
+* Deciding what to eat: Consider, taste, price, healthiness, etc.
+
+What are some other real-world examples of this sort of situation that you can
+think of?
 
 ## Anatomy of a basic conditional block in Python
 
@@ -57,7 +68,7 @@ Here's a rough diagram of a basic conditional block in Python:
 
 And here's what it looks like in code
 
-```
+```{code-cell} ipython3
 # basic conditional block
 if BooleanExpression:
     # do something
@@ -67,28 +78,39 @@ else:
     # and maybe even more something else
 ```
 
-- The **if statement**
-    - The if keyword signals that a conditional block is starting.
-    - The Boolean expression determine where to go in the conditional block
-        - `True` goes to the if branch; `False` goes to the else branch
-    - The statement needs to end in a colon to signal that the statement has ended. This is the same as with function definitions, and as we will see, with iteration loops also.
-- The "if" (`True`) **branch code**: what should happen if the Boolean expression evaluates to `True`?
-    - Needs to be indented because of scope (same with functions; also will be true of loops)
-- The **else statement**: 
-    - Signals that an else branch will be specified next
-    - Just the else keyword and a colon
-- The "else" (false) **branch code**: what should happen if the Boolean expression evaluates to `False`?
-    - Also needs to be indented
+* The **if statement**
+  * The if keyword signals that a conditional block is starting.
+  * The Boolean expression determine where to go in the conditional block:
+    * `True` goes to the if branch; `False` goes to the else branch
+  * The **if statement** needs to end in a colon to signal that it has
+    ended. This is the same as with function definitions, and as we will see,
+    with iteration loops also.
+* The "if" (`True`) **branch code**: what should happen if the Boolean
+  expression evaluates to `True`?
+  * Needs to be indented because of scope (same with functions; also will be
+    true of loops).
+* The **else statement**:
+  * Signals that an else branch will be specified next.
+  * Just the else keyword and a colon.
+* The "else" (false) **branch code**: what should happen if the Boolean
+  expression evaluates to `False`?
+  * Also needs to be indented.
 
 ### Aside: indentation and branch code
 
-Notice the idea of branch code: it's code that "belongs" to the branch. We only run it if we go into the branch.
+Notice the idea of branch code: it's code that "belongs" to the branch. We only
+run it if we go into the branch.
 
-In Python, we control what belongs to what with **indentation**. In other languages, you use things like curly braces (e.g., Java, Javascript).
+In Python, we control what belongs to what with **indentation**. In other
+languages, you use things like curly braces (e.g., Java, Javascript).
 
-**Note:** Unlike functions, `if`/`else` blocks do **not** create a new scope in Python. Variables assigned inside an `if` block are still accessible after the block finishes. The key thing indentation controls here is *which code runs in which branch*.
+**Note:** Unlike functions, `if`/`else` blocks do **not** create a new scope in
+Python. Variables assigned inside an `if` block are still accessible after the
+block finishes. The key thing indentation controls here is *which code runs in*
+*which branch*.
 
-As an example, consider the following code: how many times do you think we will print the message "hello world"? Why?
+As an example, consider the following code: how many times do you think we will
+print the message "hello world"? Why?
 
 ```{code-cell} ipython3
 # if i have passed all the requirements for graduation, print graduate! otherwise, print need to do more
@@ -104,13 +126,16 @@ else:
     print(hello)
 ```
 
-The answer: only once! Because both print statements are indented inside a conditional branch, only one branch executes: either the `if` branch or the `else` branch, but never both.
+The answer: only once! Because both print statements are indented inside a
+conditional branch, only one branch executes: either the `if` branch or the
+`else` branch, but never both.
 
 ### Examples of conditionals
 
 Let's look at some examples!
 
-The following program checks if a number is even (and prints "It's even!" if so, and "It's odd!" if not).
+The following program checks if a number is even (and prints "It's even!" if so
+and "It's odd!" if not).
 
 ```{code-cell} ipython3
 num = 3
@@ -120,7 +145,8 @@ else:
     print("It's odd!") 
 ```
 
-The following program checks if a password is correct (and prints "Come in" if so, and "Go away" if not).
+The following program checks if a password is correct (and prints "Come in" if
+so, and "Go away" if not).
 
 ```{code-cell} ipython3
 user_input = "hello"
@@ -132,7 +158,8 @@ else:
     print("Go away")
 ```
 
-The following program implements a Waiter checking your age on your ID, and then shows beer/alcohol menu or says "have some water"
+The following program implements a Waiter checking your age on your ID, and then
+shows beer/alcohol menu or says "have some water".
 
 ```{code-cell} ipython3
 age = 23
@@ -145,32 +172,43 @@ else:
 
 ## A closer look at Boolean expressions
 
-All conditional blocks depend on well-crafted **Boolean Expressions**, which are [expressions](https://joelchan.github.io/inst126-intro-programming-notes/2a_Expressions.html) that evaluate to (i.e., result in, produce) a Boolean value (i.e., `True` or `False`). This is what really determines the logic of the conditional control of flow. So you need to make sure you're proficient with Booolean expressions.
+All conditional blocks depend on well-crafted **Boolean Expressions**, which
+are [expressions](https://joelchan.github.io/inst126-intro-programming-notes/2a_Expressions.html)
+that evaluate to (i.e., result in, produce) a Boolean value (i.e., `True` or
+`False`). This is what really determines the logic of the conditional control of
+flow. So you need to make sure you're proficient with Booolean expressions.
 
 ### Boolean Operators
-We use **Boolean** Operators to compare TWO pieces of data. When evaluated, they yield a Boolean value (`True` or `False`).
+
+We use **Boolean** Operators to compare TWO pieces of data. When evaluated, they
+yield a Boolean value (`True` or `False`).
 
 `data1 booleanOperator data2`
 
 Here are the main ones:
-- `==` equal to / the same as
-- `!=` not equal to / different from
-- `>` greater than
-- `>=` greater than or equal to (at least)
-- `<` less than
-- `<=` less than or equal to (at most)
+
+* `==` equal to / the same as
+* `!=` not equal to / different from
+* `>` greater than
+* `>=` greater than or equal to (at least)
+* `<` less than
+* `<=` less than or equal to (at most)
 
 ### Logical operators
-We use **Logical** operators to *combine* basic Boolean expressions into more complex ones, like "is `a` more than 3 *and* less than 5"
+
+We use **Logical** operators to *combine* basic Boolean expressions into more
+complex ones, like "is `a` more than 3 *and* less than 5"
 
 Here are the main ones:
-- `and` (True if *all* Boolean expressions are True)
-- `or` (True if *any* Boolean expression is True)
-- `not` (True if the Boolean expression is *not* True)
+
+* `and` (True if *all* Boolean expressions are True)
+* `or` (True if *any* Boolean expression is True)
+* `not` (True if the Boolean expression is *not* True)
 
 Full list of comparison and logical operators [here](https://www.w3schools.com/python/python_operators.asp)
 
 ## Practice: Construct Boolean expressions
+
 Let's practice! Translate these Boolean expressions from English into Python.
 
 ### Basic Boolean expressions (only Boolean operator)
@@ -199,7 +237,7 @@ GPA = 1.5 # threshold of 2.0
 ```
 
 ```{code-cell} ipython3
-# did i take the prereq for the class OR get permission from the instructor?
+# did I take the prereq for the class OR get permission from the instructor?
 took_prereq = False
 have_permission = True
 # boolean expression here
@@ -216,11 +254,13 @@ have_appointment = True
 
 #### More practice: compound Boolean expressions
 
-Try these on your own! Each one requires combining Boolean operators with logical operators (`and`, `or`, `not`).
+Try these on your own! Each one requires combining Boolean operators with
+logical operators (`and`, `or`, `not`).
 
 #### 1. Can I ride the roller coaster?
 
-You can ride the roller coaster if you are at least 48 inches tall AND at least 8 years old. Write a Boolean expression that checks both conditions.
+You can ride the roller coaster if you are at least 48 inches tall AND at least
+8 years old. Write a Boolean expression that checks both conditions.
 
 ```{code-cell} ipython3
 height_inches = 50
@@ -231,7 +271,9 @@ age = 7
 
 #### 2. Is the restaurant open?
 
-The restaurant is open if the hour is between 11 and 14 (lunch) OR between 17 and 21 (dinner). Write a Boolean expression that checks if the restaurant is currently open. Assume the hour is in 24-hour time (e.g., 13 = 1pm).
+The restaurant is open if the hour is between 11 and 14 (lunch) OR between 17
+and 21 (dinner). Write a Boolean expression that checks if the restaurant is
+currently open. Assume the hour is in 24-hour time (e.g., 13 = 1pm).
 
 ```{code-cell} ipython3
 hour = 13
@@ -241,7 +283,7 @@ hour = 13
 
 #### 3. Can I get a discount?
 
-You get a discount if you are a student OR a senior (65 or older). 
+You get a discount if you are a student OR a senior (65 or older).
 
 ```{code-cell} ipython3
 is_student = False
@@ -252,7 +294,8 @@ age = 70
 
 #### 4. Should I bring an umbrella?
 
-You should bring an umbrella if it is raining OR if the chance of rain is above 50% and you don't have a rain jacket.
+You should bring an umbrella if it is raining OR if the chance of rain is above
+50% and you don't have a rain jacket.
 
 ```{code-cell} ipython3
 is_raining = False
@@ -264,7 +307,8 @@ has_rain_jacket = False
 
 #### 5. Can I register for the class?
 
-You can register for the class if you have taken the prerequisite AND (you are a junior or senior, based on credits: junior is at least 60, senior is at least 90).
+You can register for the class if you have taken the prerequisite AND (you are a
+junior or senior, based on credits: junior is at least 60, senior is at least 90).
 
 ```{code-cell} ipython3
 took_prereq = True
@@ -275,7 +319,8 @@ credits = 55
 
 #### 6. Is the flight delayed?
 
-A flight is delayed if the wind speed is above 40 mph OR (visibility is below 3 miles AND it is not a clear day).
+A flight is delayed if the wind speed is above 40 mph OR (visibility is below 3
+miles AND it is not a clear day).
 
 ```{code-cell} ipython3
 wind_speed = 25
@@ -287,7 +332,10 @@ is_clear = False
 
 ## Practice: construct basic conditional blocks
 
-Now let's practice constructing conditional blocks! Follow along with me to translate these English instructions into conditional blocks. We basically need to 1) decide what the condition is and translate it into a Boolean expression, then 2) decide what actions go in the `True` or `False` branches.
+Now let's practice constructing conditional blocks! Follow along with me to
+translate these English instructions into conditional blocks. We basically need
+to 1) decide what the condition is and translate it into a Boolean expression,
+then 2) decide what actions go in the `True` or `False` branches.
 
 If my speed is above the limit, print stop; otherwise, let me pass.
 
@@ -309,7 +357,8 @@ has_passport = False # assign the value True to the passport variable
 
 ```
 
-if i have passed all the requirements for graduation, print graduate! otherwise, print need to do more
+If I have passed all the requirements for graduation, print graduate! otherwise,
+print need to do more.
 
 ```{code-cell} ipython3
 # if i have passed all the requirements for graduation, print graduate! otherwise, print need to do more
@@ -321,7 +370,7 @@ GPA = 1.9 # threshold of 2.0
 
 ```
 
-#### More practice: basic if/else
+### More Practice: Basic if/else
 
 Try these on your own! Each one needs a basic if/else block.
 
@@ -347,7 +396,8 @@ score = 55
 
 #### 3. Number guessing game
 
-If the user's guess matches the secret number, print "You got it!"; otherwise, print "Try again!"
+If the user's guess matches the secret number, print "You got it!"; otherwise,
+print "Try again!"
 
 ```{code-cell} ipython3
 guess = 7
@@ -358,7 +408,8 @@ secret_number = 4
 
 #### 4. Shopping decision
 
-If the item is on sale AND you have enough money (i.e., money is at least the price), print "Buy it!"; otherwise, print "Maybe next time."
+If the item is on sale AND you have enough money (i.e., money is at least the
+price), print "Buy it!"; otherwise, print "Maybe next time."
 
 ```{code-cell} ipython3
 on_sale = True
@@ -370,7 +421,9 @@ money = 20
 
 <!-- #### 5. File type checker
 
-If the file name ends with ".pdf" or ".docx", print "Document file"; otherwise, print "Other file type". Hint: you can use the `.endswith()` method on strings, e.g., `"hello.pdf".endswith(".pdf")` returns `True`.
+If the file name ends with ".pdf" or ".docx", print "Document file"; otherwise,
+print "Other file type". Hint: you can use the `.endswith()` method on strings,
+e.g., `"hello.pdf".endswith(".pdf")` returns `True`.
 
 ```{code-cell} ipython3
 file_name = "report.pdf"
@@ -379,13 +432,17 @@ file_name = "report.pdf"
 ``` -->
 
 ## More complex conditional structures
-The if / else conditional block is the most basic and easy to understand. But often your programs may require something a bit simpler, and sometimes a bit more complex.
+
+The if / else conditional block is the most basic and easy to understand. But
+often your programs may require something a bit simpler, and sometimes a bit
+more complex.
 
 +++ {"id": "oh3kS5FLBquN"}
 
 ### Conditional execution
 
-The `else` branch is actually optional. Sometimes you just want to do something if it's true, otherwise you do nothing. 
+The `else` branch is actually optional. Sometimes you just want to do something
+if it's true, otherwise you do nothing.
 
 The flow looks like this:
 
@@ -396,13 +453,14 @@ The flow looks like this:
 ```
 
 Some examples:
-- Only stop someone if they're above the speed limit
-- Tell me if someone is coming!
-- Look through the bag and only pull out the red skittles
+
+* Only stop someone if they're above the speed limit
+* Tell me if someone is coming!
+* Look through the bag and only pull out the red skittles
 
 Can you think of any others?
 
-```
+```{code-cell} ipython3
 # generic
 if booleanExpression:
     # do something
@@ -420,11 +478,13 @@ if speed > limit:
 +++ {"id": "jszuKPe9CrGP"}
 
 Keywords/phrases that signal that this is appropriate?
-- if only one "choice" (or action) is described, then probably you don't need an else, since "doing nothing" is a default action
+
+* if only one "choice" (or action) is described, then probably you don't need an
+else, since "doing nothing" is a default action.
 
 #### Practice: conditional execution (no else)
 
-Try these on your own! Each one only needs an `if` — no `else` needed.
+Try these on your own! Each one only needs an `if` - no `else` needed.
 
 #### 1. Low battery warning
 
@@ -438,7 +498,8 @@ battery_level = 15
 
 #### 2. Dean's list
 
-If the student is on the dean's list (GPA of 3.5 or above), print a congratulations message.
+If the student is on the dean's list (GPA of 3.5 or above), print a
+congratulations message.
 
 ```{code-cell} ipython3
 gpa = 3.8
@@ -448,7 +509,9 @@ gpa = 3.8
 
 #### 3. Password length check
 
-If the password is less than 8 characters long, print "Warning: password is too short!" Hint: you can use `len()` to get the length of a string, e.g., `len("hello")` returns 5.
+If the password is less than 8 characters long, print "Warning: password is too
+short!" Hint: you can use `len()` to get the length of a string, e.g.,
+`len("hello")` returns 5.
 
 ```{code-cell} ipython3
 password = "abc"
@@ -480,7 +543,8 @@ day = "Saturday"
 
 ### Chained conditionals
 
-Sometimes you have more than two *mutually exclusive* choices of paths (branches). In that case you need an elif. 
+Sometimes you have more than two *mutually exclusive* choices of paths
+(branches). In that case you need an elif.
 
 The difference from the basic conditional is something like this:
 
@@ -490,20 +554,24 @@ The difference from the basic conditional is something like this:
 :align: center
 ```
 
-Some examples: 
-- you have a fever if you're above 100, hypothermia if you're under 95; otherwise, you're all good! 
-- choosing an outfit depending on where you want to go (in the Spring in Maryland!).
-- choosing a football play depending on what you think the defense is showing.
+Some examples:
+
+* you have a fever if you're above 100, hypothermia if you're under 95;
+  otherwise, you're all good!
+* choosing an outfit depending on where you want to go (in the Spring in Maryland!).
+* choosing a football play depending on what you think the defense is showing.
 
 Any other examples?
 
-The key difference between this type of conditional block and the regular "if/else" blocks is that you need more than one Boolean expression; one for each `if` or `elif` statement.
+The key difference between this type of conditional block and the regular
+"if/else" blocks is that you need more than one Boolean expression; one for each
+`if` or `elif` statement.
 
 +++
 
 Here's the generic structure:
 
-```
+```{code-cell} ipython3
 if someCondition:
     # then something
 elif someOtherCondition:
@@ -548,12 +616,12 @@ Keywords/phrases that signal that this is appropriate?
 
 When you see more than two *mutually exclusive* **conditions** or **choices**
 
-
 +++ {"id": "19fV3icBCCu0"}
 
 Practice! Let's translate these English instructions into Python conditional blocks.
 
-ticket pricing: if you're under 5 or 65 and up, price is zero; if you're theater staff, you get half price (7.50); otherwise pay normal price (15)
+ticket pricing: if you're under 5 or 65 and up, price is zero; if you're theater
+staff, you get half price (7.50); otherwise pay normal price (15):
 
 ```{code-cell} ipython3
 # ticket pricing: 
@@ -566,10 +634,13 @@ theater_staff = True
 
 ```
 
-help me write the grader for late assignments: if you submit before target date, you get full credit; if you submit after the target date, but before the last day of the period, you get 85% credit - if you submit on the last day of period, you get 70% credit
+help me write the grader for late assignments: if you submit before target date,
+you get full credit; if you submit after the target date, but before the last
+day of the period, you get 85% credit - if you submit on the last day of period,
+you get 70% credit:
 
 ```{code-cell} ipython3
-# help me write the updated grader for your PCEs:
+# help me write the updated grader for your Programming Exercises:
 # if you submit before target date, you get full credit;
 # if you submit after the target date, but before or equal 1 week threshold, you get 85% credit
 # if you submit after 1 week threshold, but before or equal to 2 week threshold, you get 70% credit
@@ -591,7 +662,8 @@ Try these on your own! Each one needs an if/elif/else block.
 
 #### 1. Letter grade converter
 
-If the score is 90 or above, print "A". If 80-89, print "B". If 70-79, print "C". If 60-69, print "D". Otherwise, print "F".
+If the score is 90 or above, print "A". If 80-89, print "B". If 70-79, print
+"C". If 60-69, print "D". Otherwise, print "F".
 
 ```{code-cell} ipython3
 score = 85
@@ -601,7 +673,9 @@ score = 85
 
 #### 2. Shipping cost calculator
 
-If the order weighs less than 1 lb, shipping is $3. If it weighs 1-5 lbs, shipping is $7. If it weighs more than 5 lbs, shipping is $12. Print the shipping cost.
+If the order weighs less than 1 lb, shipping is $3. If it weighs 1-5 lbs,
+shipping is $7. If it weighs more than 5 lbs, shipping is $12. Print the
+shipping cost.
 
 ```{code-cell} ipython3
 weight = 3.5
@@ -611,7 +685,9 @@ weight = 3.5
 
 #### 3. Time of day greeting
 
-Using 24-hour time (0 = midnight, 13 = 1pm, etc.): if the hour is less than 12, print "Good morning!" If 12-16, print "Good afternoon!" If 17-20, print "Good evening!" Otherwise, print "Good night!"
+Using 24-hour time (0 = midnight, 13 = 1pm, etc.): if the hour is less than 12,
+print "Good morning!" If 12-16, print "Good afternoon!" If 17-20, print "Good
+evening!" Otherwise, print "Good night!":
 
 ```{code-cell} ipython3
 hour = 14
@@ -621,7 +697,8 @@ hour = 14
 
 #### 4. Water state
 
-If the temperature (Celsius) is 0 or below, print "Solid (ice)". If above 100, print "Gas (steam)". Otherwise, print "Liquid (water)".
+If the temperature (Celsius) is 0 or below, print "Solid (ice)". If above 100,
+print "Gas (steam)". Otherwise, print "Liquid (water)".
 
 ```{code-cell} ipython3
 temp_c = 105
@@ -631,7 +708,8 @@ temp_c = 105
 
 #### 5. BMI category calculator
 
-If BMI is below 18.5, print "Underweight". If 18.5 to 24.9, print "Normal weight". If 25.0 to 29.9, print "Overweight". If 30.0 or above, print "Obese".
+If BMI is below 18.5, print "Underweight". If 18.5 to 24.9, print "Normal
+weight". If 25.0 to 29.9, print "Overweight". If 30.0 or above, print "Obese".
 
 ```{code-cell} ipython3
 bmi = 22.5
@@ -639,44 +717,56 @@ bmi = 22.5
 
 ```
 
-
-
 ### Planning your conditionals with decision tables
 
-As your conditional blocks get more complex (especially with chained conditionals), it gets harder to keep track of all the possible situations your code needs to handle. A **decision table** is a simple but powerful planning tool: you list out all the possible combinations of your conditions, and then decide what should happen in each case. Think of it as a spreadsheet for your logic.
+As your conditional blocks get more complex (especially with chained
+conditionals), it gets harder to keep track of all the possible situations your
+code needs to handle. A **decision table** is a simple but powerful planning
+tool: you list out all the possible combinations of your conditions, and then
+decide what should happen in each case. Think of it as a spreadsheet for your logic.
 
 #### Why bother?
 
 Consider the ticket pricing example above. The English description says:
-- under 5 or 65 and up → free
-- theater staff → half price
-- otherwise → full price
 
-But what if someone is 3 years old *and* theater staff? Should they get free or half price? The English description doesn't tell us! A decision table forces you to confront these situations *before* you write code.
+* under 5 or 65 and up → free
+* theater staff → half price
+* otherwise → full price
+
+But what if someone is 3 years old *and* theater staff? Should they get free or
+half price? The English description doesn't tell us! A decision table forces you
+to confront these situations *before* you write code.
 
 #### How to build a decision table
 
-**Step 1:** Identify your conditions (the things you're checking). For ticket pricing, that's: (a) is the person under 5 or 65+? and (b) are they theater staff?
+**Step 1:** Identify your conditions (the things you're checking). For ticket
+pricing, that's: (a) is the person under 5 or 65+? and (b) are they theater staff?
 
-**Step 2:** List every combination of True/False for those conditions. With 2 conditions, you get 4 rows:
+**Step 2:** List every combination of True/False for those conditions. With 2
+conditions, you get 4 rows:
 
 | under 5 or 65+ | theater staff | price |
-|---|---|---|
+| --- | --- | --- |
 | True | True | ??? |
 | True | False | $0 |
 | False | True | $7.50 |
 | False | False | $15 |
 
-**Step 3:** Fill in what should happen for each row. That `???` is exactly the kind of edge case that causes bugs! You need to make a decision: let's say young kids and seniors always get in free, even if they're also staff. Now the table becomes:
+**Step 3:** Fill in what should happen for each row. That `???` is exactly the
+kind of edge case that causes bugs! You need to make a decision: let's say young
+kids and seniors always get in free, even if they're also staff. Now the table
+becomes:
 
 | under 5 or 65+ | theater staff | price |
-|---|---|---|
+| --- | --- | --- |
 | True | True | $0 |
 | True | False | $0 |
 | False | True | $7.50 |
 | False | False | $15 |
 
-**Step 4:** Now your conditional block almost writes itself. Looking at the table, you can see that the age condition should be checked *first*, since it applies regardless of staff status:
+**Step 4:** Now your conditional block almost writes itself. Looking at the
+table, you can see that the age condition should be checked *first*, since it
+applies regardless of staff status:
 
 ```{code-cell} ipython3
 age = 3
@@ -691,17 +781,24 @@ else:
 
 print(f"Price: ${price}")
 ```
+
 #### The importance of ordering conditions in chained conditionals
 
-Notice how the order of the `if`/`elif` matters in our theater example! If we checked `theater_staff` first, we'd accidentally charge a 3-year-old staff member $7.50. This is because chained conditional branches are **mutually exclusive**: Python only goes down the first branch where the condition is `True`: the order of your conditions thus represents an implicit logic: each elif really means "if none of the above were true AND this is true."
+Notice how the order of the `if`/`elif` matters in our theater example! If we
+checked `theater_staff` first, we'd accidentally charge a 3-year-old staff
+member $7.50. This is because chained conditional branches are **mutually**
+**exclusive**: Python only goes down the first branch where the condition is
+`True`: the order of your conditions thus represents an implicit logic: each
+elif really means "if none of the above were true AND this is true."
 
 So, two heuristics for ordering your conditions:
 
 **Specific to general (put the most restrictive conditions first)**
 
 Example:
+
 ```{code-cell} ipython3
-# BROKEN — everyone with grade >= 70 gets "C"
+# BROKEN - everyone with grade >= 70 gets "C"
 if grade >= 70:
     print("C")
 elif grade >= 80:
@@ -714,9 +811,12 @@ A student with a 95 gets "C" because 95 >= 70 is True and Python stops there.
 
 **Special/edge cases first**
 
-Related to the above, you want conditions that specific special/edge cases to go first. This is the ticket pricing thing above: if you're below/above a certain edge, you're a special case (i.e., free!!).
+Related to the above, you want conditions that specific special/edge cases to go
+first. This is the ticket pricing thing above: if you're below/above a certain
+edge, you're a special case (i.e., free!!).
 
 Another example:
+
 ```{code-cell} ipython3
 # Good: handle the special case before the general rule
 if denominator == 0:
@@ -727,23 +827,35 @@ else:
     print("1 or less")
 ```
 
-If you swap these, you crash on division by zero before you ever get to check for it.
+If you swap these, you crash on division by zero before you ever get to check
+for it.
 
-Building out a decision table can help identify these specific/special edge cases, as we saw with the ticket pricing example.
+Building out a decision table can help identify these specific/special edge
+cases, as we saw with the ticket pricing example.
 
 #### Practice: build a decision table
 
-Try building a decision table for the late assignment grader exercise above. What are the conditions? How many rows do you need? Are there any edge cases where it's not obvious what should happen?
+Try building a decision table for the late assignment grader exercise above.
+What are the conditions? How many rows do you need? Are there any edge cases
+where it's not obvious what should happen?
 
 +++ {"id": "_1BiX-ZSCO_O", "tags": []}
 
 #### More practice: chained conditionals with multiple variables
 
-The previous problems mostly involved checking one variable against different thresholds. These problems require you to consider **two or more variables** together to decide what to do. Try building a decision table first to help you think through the cases!
+The previous problems mostly involved checking one variable against different
+thresholds. These problems require you to consider **two or more variables**
+together to decide what to do. Try building a decision table first to help you
+think through the cases!
 
 #### 6. Study advice
 
-Give a student study advice based on their grade AND how many hours they study per week. If their grade is below 70 and they study less than 10 hours, print "You need to study more!". If their grade is below 70 but they study 10 or more hours, print "Let's review your study strategies." If their grade is 70 or above and they study less than 5 hours, print "You're doing well, but don't get complacent!" Otherwise, print "Keep up the good work!"
+Give a student study advice based on their grade AND how many hours they study
+per week. If their grade is below 70 and they study less than 10 hours, print
+"You need to study more!". If their grade is below 70 but they study 10 or more
+hours, print "Let's review your study strategies." If their grade is 70 or above
+and they study less than 5 hours, print "You're doing well, but don't get
+complacent!" Otherwise, print "Keep up the good work!"
 
 ```{code-cell} ipython3
 grade = 65
@@ -754,7 +866,10 @@ study_hours = 12
 
 #### 7. Parking fee calculator
 
-A parking garage charges based on the type of vehicle AND how long you park. For motorcycles: $2 if 2 hours or less, $5 if more than 2 hours. For cars: $5 if 2 hours or less, $12 if more than 2 hours. For trucks: $10 if 2 hours or less, $20 if more than 2 hours. Print the fee.
+A parking garage charges based on the type of vehicle AND how long you park.
+For motorcycles: $2 if 2 hours or less, $5 if more than 2 hours. For cars: $5 if
+2 hours or less, $12 if more than 2 hours. For trucks: $10 if 2 hours or less,
+$20 if more than 2 hours. Print the fee.
 
 ```{code-cell} ipython3
 vehicle = "car"
@@ -765,7 +880,11 @@ hours_parked = 3
 
 #### 8. Movie recommendation
 
-Recommend a movie based on the viewer's preferred genre AND their age. If they like "action" and are under 13, print "The Incredibles". If they like "action" and are 13 or older, print "Mad Max". If they like "comedy" and are under 13, print "Despicable Me". If they like "comedy" and are 13 or older, print "The Grand Budapest Hotel". For any other genre, print "Browse the catalog."
+Recommend a movie based on the viewer's preferred genre AND their age. If they
+like "action" and are under 13, print "The Incredibles". If they like "action"
+and are 13 or older, print "Mad Max". If they like "comedy" and are under 13,
+print "Despicable Me". If they like "comedy" and are 13 or older, print "The
+Grand Budapest Hotel". For any other genre, print "Browse the catalog."
 
 ```{code-cell} ipython3
 genre = "comedy"
@@ -776,7 +895,12 @@ age = 10
 
 #### 9. Shipping speed selector
 
-An online store offers shipping options based on the order total AND whether the customer is a member. If the total is at least $50 and the customer is a member, print "Free 2-day shipping". If the total is at least $50 and not a member, print "Free standard shipping". If the total is less than $50 and a member, print "$3 standard shipping". If the total is less than $50 and not a member, print "$7 standard shipping".
+An online store offers shipping options based on the order total AND whether the
+customer is a member. If the total is at least $50 and the customer is a member,
+print "Free 2-day shipping". If the total is at least $50 and not a member,
+print "Free standard shipping". If the total is less than $50 and a member,
+print "$3 standard shipping". If the total is less than $50 and not a member,
+print "$7 standard shipping".
 
 ```{code-cell} ipython3
 order_total = 35
@@ -787,7 +911,10 @@ is_member = True
 
 ### Nested conditionals
 
-Sometimes it only makes sense to check a condition if earlier conditions are true/false. This is like a garden of forking paths or choose your own adventure. Sometimes this to save time/operations. Other times, it may make your program more readable.
+Sometimes it only makes sense to check a condition if earlier conditions are
+true/false. This is like a garden of forking paths or choose your own adventure.
+Sometimes this to save time/operations. Other times, it may make your program
+more readable.
 
 I like to think of it like a choose your own adventure maze:
 
@@ -797,7 +924,10 @@ I like to think of it like a choose your own adventure maze:
 :align: center
 ```
 
-Simple example: I want to know if x is the same, less than, or greater than y. We can represent this as a chained conditional with three conditions. But we can also group the less than or greater than conditional block by itself since that only make sense in the situation where x and y are *not* the same (i.e., `x != y`).
+Simple example: I want to know if `x` is the same, less than, or greater than `y`.
+We can represent this as a chained conditional with three conditions. But we can
+also group the less than or greater than conditional block by itself since that
+only make sense in the situation where x and y are *not* the same (i.e., `x != y`).
 
 ```{code-cell} ipython3
 x = 5
@@ -812,7 +942,11 @@ else:
         print("x is greater than y")
 ```
 
-Another simple example: graduation requirements: if you've completed the base requirements and you have a 3.0 average, then we check: do you have sufficient electives? if yes, then great! if not, take more electives. if you don't have the core requirements done, then you need to take care of that first, we'll worry about electives later.
+Another simple example: graduation requirements: if you've completed the base
+requirements and you have a 3.0 average, then we check: do you have sufficient
+electives? if yes, then great! if not, take more electives. if you don't have
+the core requirements done, then you need to take care of that first, we'll
+worry about electives later.
 
 ```{code-cell} ipython3
 :id: zQ5U8v4dGHI0
@@ -832,17 +966,30 @@ else:
     print("Finish core requirements with sufficient GPA!")
 ```
 
-<!-- Keywords/phrases that signal that this is appropriate? Something about having more than two choices, but some choices only make sense if some earlier condition is met. In other words, we have more of multiple forks, rather than a single fork. -->
+<!-- Keywords/phrases that signal that this is appropriate? Something about
+having more than two choices, but some choices only make sense if some earlier
+condition is met. In other words, we have more of multiple forks, rather than a
+single fork. -->
 
-The key idea behind nested conditionals is that some questions **only make sense to ask after you've answered an earlier question**. Think of it like a flowchart or a phone tree or a "choose your own adventure" game: the first question determines which *path* you're on, and then you face different follow-up questions depending on that path. This is different from chained conditionals, where all the conditions are testing for *mutually exclusive* possible answers for the *same* question (e.g., "what range is the score in?").
+The key idea behind nested conditionals is that some questions **only make sense**
+**to ask after you've answered an earlier question**. Think of it like a
+flowchart or a phone tree or a "choose your own adventure" game: the first
+question determines which *path* you're on, and then you face different
+follow-up questions depending on that path. This is different from chained
+conditionals, where all the conditions are testing for *mutually exclusive*
+possible answers for the *same* question (e.g., "what range is the score in?").
 
-A good test: if you enumerate the questions that are part of your problem, and one question would be **meaningless or irrelevant** without knowing the answer to a another question (i.e., is dependent on a previous question), that's a signal to use nesting.
+A good test: if you enumerate the questions that are part of your problem, and
+one question would be **meaningless or irrelevant** without knowing the answer
+to a another question (i.e., is dependent on a previous question), that's a
+signal to use nesting.
 
-<!-- In conventional practice, people sometimes recommend that (excessive) nesting be avoided, because it can be hard to understand and debug. I'm not sure I completely agree. I think it depends on the structure of your problem. I like to write nested conditionals when the underlying logic is really like a garden of forking paths or choose your own adventure game. -->
+Practice! Let's translate these English instructions into Python nested
+conditional blocks.
 
-Practice! Let's translate these English instructions into Python nested conditional blocks.
-
-Polling booth: if you don't have an id, go away and register, then come back; if you have an id come on in! then, if you need assistance, go to the assisted booth; otherwise, go to the normal booth.
+Polling booth: if you don't have an id, go away and register, then come back;
+if you have an id come on in! then, if you need assistance, go to the assisted
+booth; otherwise, go to the normal booth.
 
 ```{code-cell} ipython3
 
@@ -857,12 +1004,14 @@ need_assistance = False
 
 #### More practice: nested conditionals
 
-
-Try these on your own! Each one involves a condition that only makes sense to check after an earlier condition.
+Try these on your own! Each one involves a condition that only makes sense to
+check after an earlier condition.
 
 #### 1. Online store checkout
 
-If the user is logged in, check if they have items in their cart: if yes, print "Proceeding to checkout"; if no, print "Your cart is empty". If the user is not logged in, print "Please log in first".
+If the user is logged in, check if they have items in their cart: if yes, print
+"Proceeding to checkout"; if no, print "Your cart is empty". If the user is not
+logged in, print "Please log in first".
 
 ```{code-cell} ipython3
 logged_in = True
@@ -873,7 +1022,9 @@ items_in_cart = 0
 
 #### 2. Amusement park ride
 
-If the rider is tall enough (at least 48 inches), then check their age: if they are under 12, print "You need an adult with you"; otherwise, print "Enjoy the ride!" If they are not tall enough, print "Sorry, you're too short for this ride".
+If the rider is tall enough (at least 48 inches), then check their age: if they
+are under 12, print "You need an adult with you"; otherwise, print "Enjoy the
+ride!" If they are not tall enough, print "Sorry, you're too short for this ride".
 
 ```{code-cell} ipython3
 height = 50
@@ -884,7 +1035,10 @@ age = 10
 
 <!-- #### 3. Job application screener
 
-If the applicant has a degree, check their years of experience: if 3 or more years, print "Schedule an interview"; otherwise, print "Consider for junior position". If they don't have a degree, check their years of experience: if 5 or more years, print "Schedule an interview"; otherwise, print "Does not meet requirements".
+If the applicant has a degree, check their years of experience: if 3 or more
+years, print "Schedule an interview"; otherwise, print "Consider for junior
+position". If they don't have a degree, check their years of experience: if 5
+or more years, print "Schedule an interview"; otherwise, print "Does not meet requirements".
 
 ```{code-cell} ipython3
 has_degree = False
@@ -895,7 +1049,10 @@ years_experience = 6
 
 #### 3. Restaurant order
 
-If the restaurant is open, check if the item is on the menu. If yes, check if the item is in stock: if yes, print "Order placed!"; if no, print "Sorry, that item is sold out". If the item is not on the menu, print "We don't serve that here". If the restaurant is closed, print "Sorry, we're closed".
+If the restaurant is open, check if the item is on the menu. If yes, check if
+the item is in stock: if yes, print "Order placed!"; if no, print "Sorry, that
+item is sold out". If the item is not on the menu, print "We don't serve that
+here". If the restaurant is closed, print "Sorry, we're closed".
 
 ```{code-cell} ipython3
 is_open = True
@@ -907,7 +1064,9 @@ in_stock = False
 
 #### 4. Email filter
 
-If the email is from a known contact, print "Inbox". If the email is not from a known contact: if it contains the word "unsubscribe", print "Promotions"; otherwise, print "Unknown - review manually".
+If the email is from a known contact, print "Inbox". If the email is not from a
+known contact: if it contains the word "unsubscribe", print "Promotions";
+otherwise, print "Unknown - review manually".
 
 ```{code-cell} ipython3
 from_known_contact = False
@@ -918,9 +1077,17 @@ contains_unsubscribe = True
 
 #### 5. Tech support troubleshooter
 
-A user calls tech support. First, ask: is the device turning on? If it's not turning on, check if it's plugged in: if it's not plugged in, print "Plug in the device and try again"; if it is plugged in, print "The device may be broken - schedule a repair". If the device IS turning on, then check: is the screen displaying anything? If yes, print "Try restarting the application"; if no, print "The display may need replacement".
+A user calls tech support. First, ask: is the device turning on? If it's not
+turning on, check if it's plugged in: if it's not plugged in, print "Plug in the
+device and try again"; if it is plugged in, print "The device may be broken -
+schedule a repair". If the device IS turning on, then check: is the screen
+displaying anything? If yes, print "Try restarting the application"; if no,
+print "The display may need replacement".
 
-Notice how the "is it plugged in?" question only makes sense if the device isn't turning on, and the "is the screen displaying?" question only makes sense if it IS turning on. These are *different follow-up questions* depending on the first answer.
+Notice how the "is it plugged in?" question only makes sense if the device isn't
+turning on, and the "is the screen displaying?" question only makes sense if it
+IS turning on. These are *different follow-up questions* depending on the first
+answer.
 
 ```{code-cell} ipython3
 device_turns_on = False
@@ -932,9 +1099,17 @@ screen_displays = True
 
 #### 6. Financial aid advisor
 
-First check: does the student have financial need (family income below $50,000)? If yes, check their GPA: if GPA is 3.5 or above, print "Eligible for full scholarship"; if GPA is below 3.5, print "Eligible for need-based grant". If the student does NOT have financial need, we do a different check for their GPA: if GPA is 3.8 or above, print "Eligible for merit scholarship"; otherwise, print "No financial aid available".
+First check: does the student have financial need (family income below $50,000)?
+If yes, check their GPA: if GPA is 3.5 or above, print "Eligible for full
+scholarship"; if GPA is below 3.5, print "Eligible for need-based grant". If the
+student does NOT have financial need, we do a different check for their GPA: if
+GPA is 3.8 or above, print "Eligible for merit scholarship"; otherwise, print
+"No financial aid available".
 
-Notice: the GPA thresholds are *different* depending on whether the student has financial need. This is why nesting makes sense here -- it's not just "check income, then check GPA" independently. The *meaning* of the GPA check changes based on the income answer.
+Notice: the GPA thresholds are *different* depending on whether the student has
+financial need. This is why nesting makes sense here -- it's not just "check
+income, then check GPA" independently. The *meaning* of the GPA check changes
+based on the income answer.
 
 ```{code-cell} ipython3
 family_income = 45000
@@ -945,9 +1120,15 @@ gpa = 3.6
 
 #### 7. Package delivery router
 
-First, check if the package is domestic or international. If domestic, check the size: if it's "small", print "Send via regular mail"; if it's "large", print "Send via ground shipping". If international, check if the destination country requires customs forms: if yes, print "Fill out customs form, then send via international courier"; if no, print "Send via international courier".
+First, check if the package is domestic or international. If domestic, check
+the size: if it's "small", print "Send via regular mail"; if it's "large", print
+"Send via ground shipping". If international, check if the destination country
+requires customs forms: if yes, print "Fill out customs form, then send via
+international courier"; if no, print "Send via international courier".
 
-Again notice: the follow-up question for domestic packages (what size?) is completely different from the follow-up question for international packages (customs forms needed?). These are different paths with different decision points.
+Again notice: the follow-up question for domestic packages (what size?) is
+completely different from the follow-up question for international packages
+(customs forms needed?). These are different paths with different decision points.
 
 ```{code-cell} ipython3
 is_domestic = False
@@ -959,9 +1140,16 @@ needs_customs = True
 
 #### 8. Customer complaint handler
 
-First, check if the customer has a valid receipt. If they do, check what they want: if they want a "refund", print "Process refund to original payment method"; if they want an "exchange", print "Help customer find replacement item". If they do NOT have a receipt, check if the purchase amount is under $20: if yes, print "Offer store credit as a courtesy"; if no, print "Sorry, we need a receipt for returns over $20".
+First, check if the customer has a valid receipt. If they do, check what they
+want: if they want a "refund", print "Process refund to original payment
+method"; if they want an "exchange", print "Help customer find replacement
+item". If they do NOT have a receipt, check if the purchase amount is under
+$20: if yes, print "Offer store credit as a courtesy"; if no, print "Sorry,
+we need a receipt for returns over $20".
 
-Notice how having a receipt vs. not leads to entirely different sets of options. With a receipt, we ask "refund or exchange?" Without one, we check the dollar amount instead -- a completely different question.
+Notice how having a receipt vs. not leads to entirely different sets of options.
+With a receipt, we ask "refund or exchange?" Without one, we check the dollar
+amount instead -- a completely different question.
 
 ```{code-cell} ipython3
 has_receipt = False
@@ -971,35 +1159,51 @@ purchase_amount = 15
 
 ```
 
-
 ## Common errors
 
 ### Syntax and indentation errors
+
 e.g., forgetting the colon, or forgetting to indent
 
-Best recommendation is to use templates for now as you set them up. 
+Best recommendation is to use templates for now as you set them up.
 And of course, a linter in your editor of choice (e.g., Ruff for VSCode)!
 
 ### Boolean expression errors
-Most commonly, using `=` (this is assigning!) instead of `==` (the Boolean operator you actually want)! 
+
+Most commonly, using `=` (this is assigning!) instead of `==` (the Boolean
+operator you actually want)!
 
 ### Semantic errors: leaving out conditions, wrong ordering of conditions
-Not covering all your bases or mapping the wrong conditions to outcomes. These are the trickiest because your code runs without errors, but it does the wrong thing!
+
+Not covering all your bases or mapping the wrong conditions to outcomes. These
+are the trickiest because your code runs without errors, but it does the wrong thing!
 
 Common examples:
-- Checking conditions in the wrong order (e.g., a more general condition "catches" cases before a more specific one gets a chance - see discussion above on ordering of chained conditionals)
-- Forgetting an edge case (e.g., what if two conditions are both true at the same time?)
-- Using `and` when you mean `or`, or vice versa
 
-Especially for chained conditionals, build a decision table before you write your conditional block (see the [decision tables section above](#planning-your-conditionals-with-decision-tables)) can be a great way to prevent these kinds of errors. Listing out every combination of conditions and deciding what should happen in each case helps you spot gaps and conflicts in your logic before they become bugs.
+* Checking conditions in the wrong order (e.g., a more general condition
+  "catches" cases before a more specific one gets a chance - see discussion
+  above on ordering of chained conditionals)
+* Forgetting an edge case (e.g., what if two conditions are both true at the
+  same time?)
+* Using `and` when you mean `or`, or vice versa.
 
-Example decision table for Project 1: https://docs.google.com/spreadsheets/d/1-q5XXbMDoji8AMVWxgUf5GW5CUOJfiWQTTV6u0-DwF8/edit?usp=sharing
+Especially for chained conditionals, build a decision table before you write
+your conditional block (see the [decision tables section above](#planning-your-conditionals-with-decision-tables))
+can be a great way to prevent these kinds of errors. Listing out every
+combination of conditions and deciding what should happen in each case helps you
+spot gaps and conflicts in your logic before they become bugs.
 
-You can also use decision tables to **debug** existing code: build the table from your code by tracing through each row, and compare it to what you *intended*. If they don't match, you've found your bug.
+Example decision table for Project 1: <https://docs.google.com/spreadsheets/d/1-q5XXbMDoji8AMVWxgUf5GW5CUOJfiWQTTV6u0-DwF8/edit?usp=sharing>
+
+You can also use decision tables to **debug** existing code: build the table
+from your code by tracing through each row, and compare it to what you
+*intended*. If they don't match, you've found your bug.
 
 ### Using separate `if` blocks instead of `elif`
 
-A very common mistake is writing multiple separate `if` statements when you actually need a chained conditional (`if`/`elif`/`else`). These look similar but behave very differently!
+A very common mistake is writing multiple separate `if` statements when you
+actually need a chained conditional (`if`/`elif`/`else`). These look similar but
+behave very differently!
 
 Consider this example: assign a letter grade based on a score.
 
@@ -1022,7 +1226,12 @@ else:
 print(grade)
 ```
 
-This prints `"D"`! Why? Because each `if` is a **separate** conditional block — they all run independently. So even though `score >= 90` is `False`, the program keeps going and checks every other `if`. When it gets to `score >= 80`, that's `True`, so `grade` becomes `"B"`. But then it *keeps checking*: `score >= 70` is also `True`, so `grade` gets overwritten to `"C"`. Then `score >= 60` is also `True`, so `grade` gets overwritten again to `"D"`.
+This prints `"D"`! Why? Because each `if` is a **separate** conditional block - 
+they all run independently. So even though `score >= 90` is `False`, the program
+keeps going and checks every other `if`. When it gets to `score >= 80`, that's
+`True`, so `grade` becomes `"B"`. But then it *keeps checking*: `score >= 70`
+is also `True`, so `grade` gets overwritten to `"C"`. Then `score >= 60` is also
+`True`, so `grade` gets overwritten again to `"D"`.
 
 **Right (chained conditional with `elif`):**
 
@@ -1043,6 +1252,13 @@ else:
 print(grade)
 ```
 
-This correctly prints `"B"`. With `elif`, once a condition is `True` and its branch runs, the rest of the chain is **skipped**. That's the whole point of chaining: the conditions are *mutually exclusive* — only one branch ever executes.
+This correctly prints `"B"`. With `elif`, once a condition is `True` and its
+branch runs, the rest of the chain is **skipped**. That's the whole point of
+chaining: the conditions are *mutually exclusive* - only one branch ever executes.
 
-Remember that chained conditionals are really for situations where your conditions (questions) are meant to be **mutually exclusive** (only one should "win"), so we use `elif` to chain them together, which means the code can only go down a single branch depending on the answer to the mutually exclusive questions. Use separate `if` blocks only when the conditions are truly independent and you want *each one* checked regardless of the others.
+Remember that chained conditionals are really for situations where your
+conditions (questions) are meant to be **mutually exclusive** (only one should
+win"), so we use `elif` to chain them together, which means the code can only go
+down a single branch depending on the answer to the mutually exclusive
+questions. Use separate `if` blocks only when the conditions are truly
+independent and you want *each one* checked regardless of the others.
