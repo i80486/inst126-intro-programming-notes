@@ -124,7 +124,8 @@ start to approach a regular level of complexity, starting in Module 2 or so.
 
 But it's a fundamental concept for computational thinking (specifically problem
 decomposition), so it's worth encountering it early, so we can start drilling
-that way of thinking. It also makes the PCEs a little less confusing!
+that way of thinking. It also makes the programming exercises a little less
+confusing!
 
 Let's take a closer look at what a function actually is in Python.
 
