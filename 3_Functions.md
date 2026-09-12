@@ -731,23 +731,23 @@ code that, given the number of hours late, the score, and the maximum score,
 calculates the final score after applying the late penalty:
 
 ```{code-cell} ipython3
-hoursLate = 3
+hours_late = 3
 score = 30
-maximumScore = 50
+maximum_score = 50
 
-percentDeduction = hoursLate * 0.25
-pointsDeduction = percentDeduction / 100 * maximumScore
-finalScore = score - pointsDeduction
-print(finalScore)
+percent_deduction = hours_late * 0.25
+points_deduction = percent_deduction / 100 * maximum_score
+final_score = score - points_deduction
+print(final_score)
 ```
 
 Convert this into a function, then call it with different arguments to test it.
 
 ```{admonition} Hint
 :class: toggle
-- What are the inputs? `hours_late`, `score`, and `maximumScore`
+- What are the inputs? `hours_late`, `score`, and `maximum_score`
 - What is the key operation for the function body? The lines of code computing the values for 
-  percentDeduction, pointsDeduction, and finalScore
+  percent_deduction, points_deduction, and final_score
 - What is the output? The final score after the late deduction
 - The body of the function should include the intermediate computation steps
 ```
