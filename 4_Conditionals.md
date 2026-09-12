@@ -20,8 +20,7 @@ kernelspec:
 ## Learning goals
 
 * Write Boolean expressions based on English requirements
-* Explain different meta*patterns of conditional blocks (nested, chained, with
-  alternative vs. without)
+* Explain different patterns of conditional blocks (nested, chained, etc)
 * Construct various types of conditional blocks in Python
 
 <!-- +++ {"id": "g-lkfdphxbR0"} -->
@@ -68,7 +67,7 @@ Here's a rough diagram of a basic conditional block in Python:
 
 And here's what it looks like in code
 
-```{code-cell} ipython3
+```python
 # basic conditional block
 if BooleanExpression:
     # do something
@@ -80,17 +79,16 @@ else:
 
 * The **if statement**
   * The if keyword signals that a conditional block is starting.
-  * The Boolean expression determine where to go in the conditional block:
-    * `True` goes to the if branch; `False` goes to the else branch
+  * The Boolean expression determines where to go in the conditional block:
+    * `True` goes to the if branch; `False` goes to the else branch if present.
   * The **if statement** needs to end in a colon to signal that it has
-    ended. This is the same as with function definitions, and as we will see,
-    with iteration loops also.
+    ended. This is the same as with function definitions.
 * The "if" (`True`) **branch code**: what should happen if the Boolean
   expression evaluates to `True`?
-  * Needs to be indented because of scope (same with functions; also will be
-    true of loops).
+  * Needs to be indented because of code 'ownership'.
 * The **else statement**:
-  * Signals that an else branch will be specified next.
+  * This is *optional*.
+  * Signals that an kernelspec branch will be specified next.
   * Just the else keyword and a colon.
 * The "else" (false) **branch code**: what should happen if the Boolean
   expression evaluates to `False`?
@@ -115,10 +113,10 @@ print the message "hello world"? Why?
 ```{code-cell} ipython3
 # if i have passed all the requirements for graduation, print graduate! otherwise, print need to do more
 # did i accumulate at least 25 credits AND earn at least a 3.0 GPA?
-n_credits = 30
+number_of_credits = 30
 gpa = 3.95
 hello = "hello world!"
-if n_credits >= 25 and gpa >= 3.0:
+if number_of_credits >= 25 and gpa >= 3.0:
     print("Go ahead")
     print(hello)
 else:
@@ -149,7 +147,7 @@ The following program checks if a password is correct (and prints "Come in" if
 so, and "Go away" if not).
 
 ```{code-cell} ipython3
-user_input = "hello"
+user_input = "pass1234"
 password = "bunny"
 # if the user input matches the password
 if user_input == password:
@@ -176,14 +174,14 @@ All conditional blocks depend on well-crafted **Boolean Expressions**, which
 are [expressions](https://joelchan.github.io/inst126-intro-programming-notes/2a_Expressions.html)
 that evaluate to (i.e., result in, produce) a Boolean value (i.e., `True` or
 `False`). This is what really determines the logic of the conditional control of
-flow. So you need to make sure you're proficient with Booolean expressions.
+flow. So you need to make sure you're proficient with Boolean expressions.
 
 ### Boolean Operators
 
 We use **Boolean** Operators to compare TWO pieces of data. When evaluated, they
 yield a Boolean value (`True` or `False`).
 
-`data1 booleanOperator data2`
+`data1 <boolean_operator> data2`
 
 Here are the main ones:
 
@@ -245,7 +243,7 @@ have_permission = True
 
 ```{code-cell} ipython3
 # is the professor in the office and the door open more than a crack (at least 15 degrees) or there is a sign that says come on in or you have an appointment?
-prof_in_office = True
+professor_in_office = True
 door_angle = 5
 sign_says = "Come in"
 have_appointment = True
@@ -460,9 +458,9 @@ Some examples:
 
 Can you think of any others?
 
-```{code-cell} ipython3
+```python
 # generic
-if booleanExpression:
+if boolean_expression:
     # do something
 ```
 
@@ -558,8 +556,8 @@ Some examples:
 
 * you have a fever if you're above 100, hypothermia if you're under 95;
   otherwise, you're all good!
-* choosing an outfit depending on where you want to go (in the Spring in Maryland!).
-* choosing a football play depending on what you think the defense is showing.
+* Choose an outfit depending on where you want to go (in the Spring in Maryland!).
+* Choose a football play depending on what you think the defense is showing.
 
 Any other examples?
 
@@ -571,7 +569,7 @@ The key difference between this type of conditional block and the regular
 
 Here's the generic structure:
 
-```{code-cell} ipython3
+```python
 if someCondition:
     # then something
 elif someOtherCondition:
@@ -601,10 +599,10 @@ else:
 :id: BaHh7pSfCCNm
 
 # example
-temp_f = 97
-if temp_f >= 100:
+temp_farenheit = 97
+if temp_farenheit >= 100:
     print("fever!")
-elif temp_f < 95: # need another Boolean expression
+elif temp_farenheit < 95: # need another Boolean expression
     print("hypothermia!")
 else:
     print("all good!")
@@ -620,7 +618,7 @@ When you see more than two *mutually exclusive* **conditions** or **choices**
 
 Practice! Let's translate these English instructions into Python conditional blocks.
 
-ticket pricing: if you're under 5 or 65 and up, price is zero; if you're theater
+Ticket pricing: if you're under 5 or 65 and up, price is zero; if you're theater
 staff, you get half price (7.50); otherwise pay normal price (15):
 
 ```{code-cell} ipython3
@@ -634,7 +632,7 @@ theater_staff = True
 
 ```
 
-help me write the grader for late assignments: if you submit before target date,
+Help me write the grader for late assignments: if you submit before target date,
 you get full credit; if you submit after the target date, but before the last
 day of the period, you get 85% credit - if you submit on the last day of period,
 you get 70% credit:
@@ -951,13 +949,13 @@ worry about electives later.
 ```{code-cell} ipython3
 :id: zQ5U8v4dGHI0
 
-n_credits = 125
+number_of_credits = 125
 credit_threshold = 120
 GPA = 3.5
 n_electives = 3
 electives_threshold = 4
 
-if n_credits >= credit_threshold and GPA >= 3.0:
+if number_of_credits >= credit_threshold and GPA >= 3.0:
     if n_electives >= electives_threshold:
         print("Ready to graduate!")
     else:
@@ -988,7 +986,7 @@ Practice! Let's translate these English instructions into Python nested
 conditional blocks.
 
 Polling booth: if you don't have an id, go away and register, then come back;
-if you have an id come on in! then, if you need assistance, go to the assisted
+if you have an id come on in! Then, if you need assistance, go to the assisted
 booth; otherwise, go to the normal booth.
 
 ```{code-cell} ipython3
@@ -1055,9 +1053,9 @@ item is sold out". If the item is not on the menu, print "We don't serve that
 here". If the restaurant is closed, print "Sorry, we're closed".
 
 ```{code-cell} ipython3
-is_open = True
-on_menu = True
-in_stock = False
+restaurant_is_open = True
+item_is_on_menu = True
+item_is_in_stock = False
 # nested conditional block below here
 
 ```
@@ -1152,8 +1150,8 @@ With a receipt, we ask "refund or exchange?" Without one, we check the dollar
 amount instead -- a completely different question.
 
 ```{code-cell} ipython3
-has_receipt = False
-wants = "refund"
+customer_has_receipt = False
+customer_request = "refund"
 purchase_amount = 15
 # nested conditional block below here
 
@@ -1164,9 +1162,6 @@ purchase_amount = 15
 ### Syntax and indentation errors
 
 e.g., forgetting the colon, or forgetting to indent
-
-Best recommendation is to use templates for now as you set them up.
-And of course, a linter in your editor of choice (e.g., Ruff for VSCode)!
 
 ### Boolean expression errors
 
