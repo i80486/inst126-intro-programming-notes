@@ -431,7 +431,7 @@ print("S is now", len(longer_s), "characters long after adding", how_many, "char
 The first chunk of code defines the function `longer()`. The second chunk of
 code *calls* the function on line 12 (`longer_s = longer(s, how_many)`).
 
-This define-call sequence should look similar to our PCE structure: your
+This define-call sequence should look similar to our programming exercise structure: your
 solutions.py files define functions, and your tests.py files call those
 functions to test them with different inputs.
 
