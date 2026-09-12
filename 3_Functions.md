@@ -775,23 +775,23 @@ You're at a restaurant and want to compute the total bill including tip and tax.
 Here is working code that computes the total:
 
 ```{code-cell} ipython3
-mealCost = 45.00
-tipRate = 0.18
-taxRate = 0.06
+meal_cost = 45.00
+tip_rate = 0.18
+tax_rate = 0.06
 
-tipAmount = mealCost * tipRate
-taxAmount = mealCost * taxRate
-totalBill = mealCost + tipAmount + taxAmount
-print(totalBill)
+tip_amount = meal_cost * tip_rate
+tax_amount = meal_cost * tax_rate
+total_bill = meal_cost + tip_amount + tax_amount
+print(total_bill)
 ```
 
 Convert this into a function, then call it with different arguments to test it.
 
 ```{admonition} Hint
 :class: toggle
-- What are the inputs? `mealCost`, `tipRate`, and `taxRate`
-- What is the key operation for the function body? The lines computing tipAmount,
-  taxAmount, and totalBill
+- What are the inputs? `meal_cost`, `tip_rate`, and `tax_rate`
+- What is the key operation for the function body? The lines computing tip_amount,
+  tax_amount, and total_bill
 - What is the output? The total bill
 ```
 
@@ -818,11 +818,11 @@ You want to compute how far a car travels, given its speed in miles per hour and
 the travel time in minutes. Here is working code that computes the distance:
 
 ```{code-cell} ipython3
-speedMph = 60
-timeMinutes = 90
+speed_mph = 60
+time_minutes = 90
 
-timeHours = timeMinutes / 60
-distance = speedMph * timeHours
+time_hours = time_minutes / 60
+distance = speed_mph * time_hours
 print(distance)
 ```
 
@@ -830,7 +830,7 @@ Convert this into a function, then call it with different arguments to test it.
 
 ```{admonition} Hint
 :class: toggle
-- What are the inputs? `speedMph` and `timeMinutes`
+- What are the inputs? `speed_mph` and `time_minutes`
 - What is the key operation for the function body? Converting minutes to hours, then multiplying speed by time
 - What is the output? The distance traveled
 ```
@@ -858,24 +858,24 @@ You want to compute the final price of an item after applying a discount and
 then adding sales tax. Here is working code that computes the final price:
 
 ```{code-cell} ipython3
-originalPrice = 80.00
-discountPercent = 25
-taxRate = 0.06
+original_price = 80.00
+discount_percent = 25
+tax_rate = 0.06
 
-discountAmount = originalPrice * (discountPercent / 100)
-discountedPrice = originalPrice - discountAmount
-taxAmount = discountedPrice * taxRate
-finalPrice = discountedPrice + taxAmount
-print(finalPrice)
+discount_amount = original_price * (discount_percent / 100)
+discounted_price = original_price - discount_amount
+tax_amount = discounted_price * tax_rate
+final_price = discounted_price + tax_amount
+print(final_price)
 ```
 
 Convert this into a function, then call it with different arguments to test it.
 
 ```{admonition} Hint
 :class: toggle
-- What are the inputs? `originalPrice`, `discountPercent`, and `taxRate`.
-- What is the key operation for the function body? The lines computing discountAmount,
-  discountedPrice, taxAmount, and finalPrice.
+- What are the inputs? `original_price`, `discount_percent`, and `tax_rate`.
+- What is the key operation for the function body? The lines computing discount_amount,
+  discounted_price, tax_amount, and final_price.
 - What is the output? The final price after discount and tax.
 ```
 
@@ -918,8 +918,7 @@ matter what arguments we pass in.
 def minus(x, y):
     x = 3
     y = 1
-    result = x - y
-    return result
+    return x - y
 ```
 
 This is because we are *redefining* `x` and `y` in the body of the function and
