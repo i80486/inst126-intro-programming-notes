@@ -55,67 +55,67 @@ Here's an example program that could solve this problem:
 ```{code-cell} ipython3
 # DEFINE the two sub-functions we need
 
-def clean_sale_number(saleNumStr): 
+def clean_sale_number(sale_number_string): 
     
     # 1: remove dollar signs
-    saleNumStr = saleNumStr.replace("$", "")
+    sale_number_string = sale_number_string.replace("$", "")
     
     # 2: remove the comma
-    saleNumStr = saleNumStr.replace(",", "")
+    sale_number_string = sale_number_string.replace(",", "")
     
     # 3: convert to float
-    result = float(saleNumStr)
+    cleaned_sale_number = float(sale_number_string)
     
-    return result 
+    return cleaned_sale_number 
 
-def compute_percent_change(lastYear, thisYear):
+def compute_percent_change(last_year, this_year):
     
     # first make the input numbers actually numbers
-    lastYear = clean_sale_number(lastYear)
-    thisYear = clean_sale_number(thisYear)
+    last_year = clean_sale_number(last_year)
+    this_year = clean_sale_number(this_year)
 
     # then compute the percent change
-    result = ((thisYear - lastYear)/lastYear)*100
+    result = ((this_year - last_year)/last_year)*100
     return result
 
 # actually use (CALL) the functions.
 
-lastYear = "$500,000.35"
-thisYear = "$1,256,000.21"
-percentChange = compute_percent_change(lastYear, thisYear)
-print(percentChange)
+last_year = "$500,000.35"
+this_year = "$1,256,000.21"
+percent_change = compute_percent_change(last_year, this_year)
+print(percent_change)
 ```
 
 Without functions, we would need to copy/paste the clean sales operation. This
 is both annoying and increases the likelihood of errors!
 
 ```{code-cell} ipython3
-def compute_percent_change(lastYear, thisYear):
+def compute_percent_change(last_year, this_year):
     
-    # make the input lastYear actually a number
+    # make the input last_year actually a number
 
     # 1: remove dollar signs
-    lastYear = lastYear.replace("$", "")
+    last_year = last_year.replace("$", "")
     
     # 2: remove the comma
-    lastYear = lastYear.replace(",", "")
+    last_year = last_year.replace(",", "")
     
     # 3: convert to float
-    lastYear = float(lastYear)
+    last_year = float(last_year)
     
-    # make the input thisYear actually a number
+    # make the input this_year actually a number
     
     # 1: remove dollar signs
-    thisYear = thisYear.replace("$", "")
+    this_year = this_year.replace("$", "")
     
     # 2: remove the comma
-    thisYear = thisYear.replace(",", "")
+    this_year = this_year.replace(",", "")
     
     # 3: convert to float
-    thisYear = float(thisYear)
+    this_year = float(this_year)
 
     # then compute the percent change
-    result = ((thisYear - lastYear)/lastYear)*100
+    result = ((this_year - last_year)/last_year)*100
     return result
 ```
 
@@ -143,8 +143,8 @@ Let's consider an example of a function to convert minutes to hours.
 
 ```{code-cell} ipython3
 def minutes_to_hours(minutes):
-    result = minutes/60
-    return result
+    hours = minutes/60
+    return hours
 ```
 
 The function `minutes_to_hours()` has input __parameter__ `minutes`, a __body__
@@ -162,9 +162,9 @@ def greet_user(username):
 ```
 
 ```{code-cell} ipython3
-def longer(inputString, howMany):
-    toAdd = "a"*howMany
-    result = inputString + toAdd
+def longer(input_string, how_many):
+    to_add = "a"*how_many
+    result = input_string + to_add
     return result
 ```
 
@@ -203,9 +203,9 @@ Q: What are the parameters, function body, and return value(s) here?
 And another example:
 
 ```{code-cell} ipython3
-def longer(inputString, howMany):
-    toAdd = "a"*howMany
-    result = inputString + toAdd
+def longer(input_string, how_many):
+    to_add = "a"*how_many
+    result = input_string + to_add
     return result
 ```
 
@@ -213,7 +213,7 @@ Q: What are the parameters, function body, and return value(s) here?
 
 ```{admonition} A:
 :class: toggle
-1. Parameter(s): inputString, howMany
+1. Parameter(s): input_string, how_many
 2. Function body: lines 2 and 3
 3. Return value: result
 ```
@@ -320,7 +320,7 @@ Parameter: age
 Argument: your_age
 ``` -->
 
-### Key idea: Arguments vs. parameters
+### Key idea: Arguments vs. Parameters
 
 Parameters and arguments are easy to confuse. They both go in the parentheses
 after the function name. So what's the difference?
@@ -396,15 +396,15 @@ Here's another example:
 
 ```{code-cell} ipython3
 # DEFINE a function that takes an input string and adds a specified number of characters to it
-def longer(inputString, howMany):
+def longer(input_string, how_many):
     
     # create a string that is 
-    # howMany characters long (by multiplying a single character string by that length)
-    toAdd = "a"*howMany
+    # how_many characters long (by multiplying a single character string by that length)
+    to_add = "a"*how_many
     
-    # concatenate that "toAdd" string to the input string
+    # concatenate that "to_add" string to the input string
     # and store in the result variable
-    result = inputString + toAdd
+    result = input_string + to_add
     
     # return the result
     return result
@@ -418,18 +418,18 @@ s = "huzzah"
 print("S is originally", len(s), "characters long. Here it is:", s)
 
 # define how much longer we want to make the string
-howMany = 3
+how_many = 3
 
 # CALL the longer() function to make a string that is that many characters longer than the string s
 # and store the return value in the new variable longer_s
-longer_s = longer(s, howMany)
+longer_s = longer(s, how_many)
 
 # look at the length of the longer string, using the len() function
-print("S is now", len(longer_s), "characters long after adding", howMany, "characters. Here it is:", longer_s)
+print("S is now", len(longer_s), "characters long after adding", how_many, "characters. Here it is:", longer_s)
 ```
 
 The first chunk of code defines the function `longer()`. The second chunk of
-code *calls* the function on line 12 (`longer_s = longer(s, howMany)`).
+code *calls* the function on line 12 (`longer_s = longer(s, how_many)`).
 
 This define-call sequence should look similar to our PCE structure: your
 solutions.py files define functions, and your tests.py files call those
@@ -476,40 +476,40 @@ Let's go back to our example sales cleaning program.
 ```{code-cell} ipython3
 # DEFINE the two sub-functions we need
 
-def clean_sale_number(saleNumStr): 
+def clean_sale_number(sale_number_string): 
     
     # 1: remove dollar signs
-    saleNumStr = saleNumStr.replace("$", "")
+    sale_number_string = sale_number_string.replace("$", "")
     
     # 2: remove the comma
-    saleNumStr = saleNumStr.replace(",", "")
+    sale_number_string = sale_number_string.replace(",", "")
     
     # 3: convert to float
-    result = float(saleNumStr)
+    result = float(sale_number_string)
     
     return result 
 
-def compute_percent_change(lastYear, thisYear):
+def compute_percent_change(last_year, this_year):
     
     # first make the input numbers actually numbers
-    lastYear = clean_sale_number(lastYear)
-    thisYear = clean_sale_number(thisYear)
+    last_year = clean_sale_number(last_year)
+    this_year = clean_sale_number(this_year)
 
     # then compute the percent change
-    result = ((thisYear - lastYear)/lastYear)*100
+    result = ((this_year - last_year)/last_year)*100
     return result
 
-lastYear = "$500,000.35"
-thisYear = "$1,256,000.21"
-percentChange = compute_percent_change(lastYear, thisYear)
-print(percentChange)
+last_year = "$500,000.35"
+this_year = "$1,256,000.21"
+percent_change = compute_percent_change(last_year, this_year)
+print(percent_change)
 ```
 
 Q: Where are the function calls?
 
 ```{admonition} A:
 :class: toggle
-On line 28 (`compute_percent_change(lastYear, thisYear)`), but also inside the body of the `compute_percent_change()` function definition on lines 19 and 20, calling the `clean_sale_number()` function for both `lastYear` and `thisYear` variables!
+On line 28 (`compute_percent_change(last_year, this_year)`), but also inside the body of the `compute_percent_change()` function definition on lines 19 and 20, calling the `clean_sale_number()` function for both `last_year` and `this_year` variables!
 ```
 
 ## How to define functions
@@ -533,31 +533,31 @@ Let's look at an example together!
 Let's write a function that applies a discount to a sale, given the sale amount
 and the percentage discount.
 
-Here is code that successfully computes a saleAmount after applying a discount:
+Here is code that successfully computes a sale_amount after applying a discount:
 
 ```{code-cell} ipython3
-saleAmount = 10.00
-percentageDiscount = 0.3
+sale_amount = 10.00
+percentage_discount = 0.3
 
-saleAmount - saleAmount*percentageDiscount
+sale_amount - sale_amount*percentage_discount
 ```
 
 And here is a function definition that encapsulates that code into a function
-`apply_discount()`, with `saleAmount` and `percentageDiscount` as input
+`apply_discount()`, with `sale_amount` and `percentage_discount` as input
 __parameters__, the main computation from above applying the discount in the
-__function body__, and then defining the __return value__ as the `finalAmount`.
+__function body__, and then defining the __return value__ as the `final_amount`.
 
 ```{code-cell} ipython3
-def apply_discount(saleAmount, percentageDiscount):
-    finalAmount = saleAmount - saleAmount*percentageDiscount
-    return finalAmount
+def apply_discount(sale_amount, percentage_discount):
+    final_amount = sale_amount - sale_amount*percentage_discount
+    return final_amount
 ```
 
 Here's an example of how we can call that function, using our explicit
 argument-parameter notation from before.
 
 ```{code-cell} ipython3
-apply_discount(saleAmount=325.99, percentageDiscount=.2)
+apply_discount(sale_amount=325.99, percentage_discount=.2)
 ```
 
 And another simple one: give me the area of a triangle, given its base and height.
@@ -602,22 +602,22 @@ numbers. We know it works.
 
 ```{code-cell} ipython3
 # test number
-rawSale = "$600,153.25"
+raw_sale = "$600,153.25"
 
 # make the input numbers actually numbers
 # 1: remove dollar signs
-cleanSale = rawSale.replace("$", "")
+clean_sale = raw_sale.replace("$", "")
 
 # 2: remove the comma
-cleanSale = cleanSale.replace(",", "")
+clean_sale = clean_sale.replace(",", "")
 
 # 3: convert to float
-result = float(cleanSale)
+result = float(clean_sale)
 result # the output
 ```
 
 We can then encapsulate this into a function `clean_sale_number()`, with
-`rawSale` as the main input __parameter__, and the various operations cleaning
+`raw_sale` as the main input __parameter__, and the various operations cleaning
 the string in the __function body__, and the resulting float value as a
 __return value__.
 
@@ -625,24 +625,23 @@ __return value__.
 # 1. decide which variables are inputs/outputs, fill out function skeleton
 # 2. integrate rest of code into the body of the function
 
-# rawSale is input variable, so it's a parameter
-def clean_sale_number(rawSale):
+# raw_sale is input variable, so it's a parameter
+def clean_sale_number(raw_sale):
 
     # 1: remove dollar signs
-    cleanSale = rawSale.replace("$", "")
+    clean_sale = raw_sale.replace("$", "")
     
     # 2: remove the comma
-    cleanSale = cleanSale.replace(",", "")
+    clean_sale = clean_sale.replace(",", "")
     
     # 3: convert to float
-    result = float(cleanSale) 
-    return result
+    return float(clean_sale) 
 ```
 
 We can then call the function like this:
 
 ```{code-cell} ipython3
-clean_sale_number(rawSale="$2,115,000")
+clean_sale_number(raw_sale="$2,115,000")
 ```
 
 ### Practice: converting code to functions
@@ -661,32 +660,32 @@ A gym offers a discount if you are either a student or over 65 years old. Here
 is working code that checks discount eligibility based on student status and age:
 
 ```{code-cell} ipython3
-isStudent = False
+is_student = False
 age = 66
 
-isEligible = isStudent == True or age > 65
-print(isEligible)
+is_eligible = is_student == True or age > 65
+print(is_eligible)
 ```
 
 Convert this into a function, then call it with different arguments to test it.
 
 ```{admonition} Hint
 :class: toggle
-- What is the key operation for the function body? The boolean expression checking isStudent and age
+- What is the key operation for the function body? The boolean expression checking is_student and age
 ```
 
 Here is some starter code (parameters and return statement are done, just fill
 in the body of the function!).
 
 ```{code-cell} ipython3
-def check_discount(isStudent, age):
+def check_discount(is_student, age):
     # replace with your code
     return result
 
 # test calls
-check_discount(isStudent=True, age=35)   # True (student)
-check_discount(isStudent=False, age=66)  # True (over 65)
-check_discount(isStudent=False, age=30)  # False (neither)
+check_discount(is_student=True, age=35)   # True (student)
+check_discount(is_student=False, age=66)  # True (over 65)
+check_discount(is_student=False, age=30)  # False (neither)
 ```
 
 #### Exercise 2: Flour for cookies
@@ -1103,21 +1102,21 @@ references the correct name of the function (not a misspelled one).
 For instance, the following program will result in a `NameError`:
 
 ```{code-cell} ipython3
-def clean_sale_number(rawSale):
+def clean_sale_number(raw_sale):
 
-    cleanSale = rawSale.replace("$", "")
-    cleanSale = cleanSale.replace(",", "")
+    clean_sale = raw_sale.replace("$", "")
+    clean_sale = clean_sale.replace(",", "")
     
-    result = float(cleanSale) 
+    result = float(clean_sale) 
     return result
 
-clean_sale(rawSale="$2,115,000")
+clean_sale(raw_sale="$2,115,000")
 ```
 
 Why? Because the function is defined with the label `clean_sale_number`, and
 we're asking Python to go look for a function with the label `clean_sale` (which
 doesn't exist!). Here, the fix would be to change line 9 to
-`clean_sale_number(rawSale="$2,115,000")`.
+`clean_sale_number(raw_sale="$2,115,000")`.
 
 ### Practice: debugging functions
 
@@ -1134,17 +1133,17 @@ A gym offers a discount if you are either a student or over 65 years old. Debug
 the following program:
 
 ```{code-cell} ipython3
-def discount_eligibility(isStudent, age):
-    isStudent = False
+def discount_eligibility(is_student, age):
+    is_student = False
     age = 35
-    result = isStudent == True or age > 65
+    result = is_student == True or age > 65
     return result
 
-studentStatus = True
-customerAge = 35
+student_status = True
+customer_age = 35
 
-isEligible = discount_eligibility(isStudent=studentStatus, age=customerAge)
-print(isEligible)
+is_eligible = discount_eligibility(is_student=student_status, age=customer_age)
+print(is_eligible)
 ```
 
 The program call should print out `True` (the customer is a student), but it
