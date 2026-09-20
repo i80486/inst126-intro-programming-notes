@@ -74,15 +74,7 @@ representation can help be a passive navigator resource)
 
 This is why we have your first deliverable for Project 2 be a problem formulation.
 
-## Two components of a problem formulation: Decomposition and Specification
-
-### Decomposition
-
-One key aspect of a computational problem formulation is a problem decomposition:
-
-1. The key steps/**operations** of your program
-2. The **data** that is going in and out of the steps/operations
-3. The **logical flow** of how all the pieces fit together
+## Diagramming Methods
 
 Before we start, I am proposing two methods for diagramming:
 
@@ -92,6 +84,14 @@ A simple diagramming convention using red post-its for operations, blue
 post-its for data, and orange/yellow for logical relationships. The blue
 and red should contrast well for those who are colorblind, and the logic
 is a separate shape. If anyone has issues, let me know.
+
+Example:
+
+```{image} assets/probform-ex-email-filter.png
+:class: bg-primary mb-1
+:width: 700px
+:align: center
+```
 
 ### Data Flow Charts
 
@@ -138,7 +138,7 @@ A decision diamond reflects a conditional - a fork in the road in your
 program. The primary purpose visually is to help you, the user, understand
 what actions the program takes and under which circumstances.
 
-```{image} assets/data-flow-drawio.png
+```{image} assets/decision-drawio.png
 :class: bg-primary mb-1
 :width: 350px
 :align: center
@@ -150,6 +150,10 @@ A data flow represents what data is going between two other components. Data
 can flow between processes, external entities, or decision diamonds (and)
 between types as well.
 
+If you use them with decision diamonds, indicate which decision is being made
+as multiple flows will exit the diamond. It's not always necessary to say which
+type of data is flowing in those cases (you will see why in practice.)
+
 Be sure to name the one or more data pieces that are flowing between the
 other components.
 
@@ -159,7 +163,15 @@ other components.
 :align: center
 ```
 
-### Decomposition Examples
+## Two components of a problem formulation: Decomposition and Specification
+
+### Decomposition
+
+One key aspect of a computational problem formulation is a problem decomposition:
+
+1. The key steps/**operations** of your program
+2. The **data** that is going in and out of the steps/operations
+3. The **logical flow** of how all the pieces fit together
 
 Let's see how these map to our initial example:
 
@@ -171,13 +183,31 @@ Let's see how these map to our initial example:
 
 Alternately, our Data Flow Chart:
 
+```{image} assets/probform-ex-email-filter-drawio.png
+:class: bg-primary mb-1
+:width: 1000px
+:align: center
+```
+
+Side note - see how this process is not perfect! Simple models cannot completely
+match the true scenario. See how I added a cylinder for the email filter list -
+I was thinking it would be a variable in our code, which doesn't have a representation
+in our diagramming method! So I chose something that made sense. Maybe I should
+have chosen an External Entity like a user setting up their Gmail filter! But it's
+grey area, so make your best judgement and choose what's most helpful for you.
+
+Another thing - there's actually no direct connection for the one email on process
+1.0 and the 3.0 process. We know it's getting there somehow, but it probably would
+have required adding some intermediary components to truly track it properly. So
+I have left it implicit here.
+
 In this example, the key elements were:
 
 * Operations: *extract* email address from email record, *extract* username from
   email, *add* email to filtered emails list if the username isn't in the
   blocked username list
 * Data: *raw email list*, *filtered emails*, etc.
-* Logic: *loop* over every raw email, *conditional* for the adding operation,
+* Logic: *loop* over every email, *conditional* for the adding operation,
   sequence between the operations.
 
 Here is another simple example: I'm going to give you a list of numbers, and I
