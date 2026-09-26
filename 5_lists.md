@@ -14,18 +14,19 @@ kernelspec:
 # 5: Lists
 
 ## Learning goals
-- Create a list in Python
-- Do common operations on lists (e.g., appending, indexing, slicing, sorting)
-- Explain difference between mutable and immutable data structures
-- Recognize potential application opportunities for collection methods and functions (e.g., len, max, min)
-- Explain difference between functions and methods
-- Appropriately apply collection methods and functions to lists
+
+* Create a list in Python
+* Do common operations on lists (e.g., appending, indexing, slicing, sorting)
+* Explain difference between mutable and immutable data structures
+* Recognize potential application opportunities for collection methods and functions (e.g., len, max, min)
+* Explain difference between functions and methods
+* Appropriately apply collection methods and functions to lists
 
 ## What are lists and why should we care about them?
 
 ### A list is a kind of collection data structure
 
-So far we’ve mostly used a “non-collection” data structures. Most of our variables have one value in them - when we put a new value in the variable, the old value is overwritten
+So far we've mostly used a "non-collection" data structures. Most of our variables have one value in them - when we put a new value in the variable, the old value is overwritten
 
 A list is a kind of **collection** data structure. A collection allows us to put many values into a single "variable"
 
@@ -71,7 +72,9 @@ def find_smallest_among_5(a, b, c, d, e):
         smallest = e
     return smallest
 ```
+
 What if we have six numbers? We can't reuse our function, need to modify to add more parameters and "switches" in our chained conditional.
+
 ```{code-cell} ipython3
 def find_smallest_among_6(a, b, c, d, e, f):
     smallest = a
@@ -89,6 +92,7 @@ def find_smallest_among_6(a, b, c, d, e, f):
 ```
 
 What if we have three numbers? Again, can't reuse our function, need to modify to remove parameters and "switches" in our chained conditional.
+
 ```{code-cell} ipython3
 # or just 3?
 def find_smallest_among_3(a, b, c):
@@ -101,6 +105,7 @@ def find_smallest_among_3(a, b, c):
 ```
 
 In contrast, check out what we can do if we have lists as a data structure! This is an elegant function that covers the class of "find smallest among N numbers" problems and can be reused and composed.
+
 ```{code-cell} ipython3
 # with lists
 def find_smallest(l):
@@ -156,6 +161,7 @@ How would you solve this without lists? Or some kind of collection?
 ## Anatomy of a list in Python
 
 List constants or "literals":
+
 1. Are surrounded by square brackets
 2. Contain zero or more elements; multiple items are separated by commas.
 
@@ -219,17 +225,18 @@ e
 ## Some properties of lists
 
 Some properties of lists:
-- Can hold **more than one value**
-    - What can go in a list?
-        - Any Python object: even another list!
-        - Mixed objects: doesn't all have to be the same type of object
-    - But you can also have lists with just one item, or no items! Rarely will this be useful (except to initialize the variable).
-- Is **indexed** positionally, and therefore has a notion of position / order
-    - Some other data structures, like dictionaries, don't have this property
-        - This allows you to do things like sort, find by position (e.g., "first" or "last")
-    - NOTE: the index starts at 0, not 1! So the first item is at index / position 0, the second at index / position 1, and so on...
-        - Very important to remember this as you work with getting things in and out of lists
-- Is **mutable**: you can change the data held by the variable directly. Some other data structures (like strings!) are immutable - you can never directly modify the value held by the variable, you can only create a new modified value that you must then assign to the same or different variable to keep around. Hold this thought to compare/contrast when we discuss strings in a couple weeks.
+
+* Can hold **more than one value**
+  * What can go in a list?
+    * Any Python object: even another list!
+    * Mixed objects: doesn't all have to be the same type of object
+  * But you can also have lists with just one item, or no items! Rarely will this be useful (except to initialize the variable).
+* Is **indexed** positionally, and therefore has a notion of position / order
+  * Some other data structures, like dictionaries, don't have this property
+    * This allows you to do things like sort, find by position (e.g., "first" or "last")
+  * NOTE: the index starts at 0, not 1! So the first item is at index / position 0, the second at index / position 1, and so on...
+    * Very important to remember this as you work with getting things in and out of lists
+* Is **mutable**: you can change the data held by the variable directly. Some other data structures (like strings!) are immutable - you can never directly modify the value held by the variable, you can only create a new modified value that you must then assign to the same or different variable to keep around. Hold this thought to compare/contrast when we discuss strings in a couple weeks.
 
 Let's demonstrate these properties by "dissecting" a few lists together.
 
@@ -307,6 +314,7 @@ print(basic_list_4)
 ## Working with lists
 
 ### Make a list
+
 Can use the assignment statement to initialize to an empty list, or manually specify what's in a list
 
 ```{code-cell} ipython3
@@ -347,9 +355,10 @@ print(some_list[2]) # third item
 ```
 
 A helpful trick for getting the last or nth-to-last item is to start the indexing in reverse. Confusingly, this indexing starts at 1... Sorry!
-- -1 is last
-- -2 is second last
-- and so on...
+
+* -1 is last
+* -2 is second last
+* and so on...
 
 ```{code-cell} ipython3
 another_list = [3, 4, 5, 6, 7] # 5 items in this list
@@ -383,6 +392,7 @@ print(y[0])
 ```
 
 ### Get multiple (contiguous) things out of a list: Slicing
+
 **Slicing** is a variation of indexing that grabs more than one value. The colon specifies that you're slicing.
 
 The first number is where you start.
@@ -471,10 +481,11 @@ print(colors[1])
 ```
 
 What does this print?
-- A) `red`
-- B) `blue`
-- C) `green`
-- D) Error
+
+* A) `red`
+* B) `blue`
+* C) `green`
+* D) Error
 
 ```{admonition} Answer:
 :class: toggle
@@ -493,10 +504,11 @@ print(fruits[-3])
 ```
 
 What does this print?
-- A) `elderberry` and `date`
-- B) `date` and `cherry`
-- C) `elderberry` and `cherry`
-- D) `elderberry` and `banana`
+
+* A) `elderberry` and `date`
+* B) `date` and `cherry`
+* C) `elderberry` and `cherry`
+* D) `elderberry` and `banana`
 
 ```{admonition} Answer:
 :class: toggle
@@ -516,10 +528,11 @@ print(nums[4])
 ```
 
 What does this print?
-- A) `10`, `20`, `30`
-- B) `10`, `30`, `50`
-- C) `20`, `40`, `50`
-- D) `20`, `40`, and then an Error
+
+* A) `10`, `20`, `30`
+* B) `10`, `30`, `50`
+* C) `20`, `40`, `50`
+* D) `20`, `40`, and then an Error
 
 ```{admonition} Answer:
 :class: toggle
@@ -538,10 +551,11 @@ print(animals)
 ```
 
 What does this print?
-- A) `['cat', 'hamster', 'fish', 'bird']`
-- B) `['cat', 'dog', 'hamster', 'bird']`
-- C) `['cat', 'dog', 'fish', 'hamster']`
-- D) `['cat', 'dog', 'fish', 'bird', 'hamster']`
+
+* A) `['cat', 'hamster', 'fish', 'bird']`
+* B) `['cat', 'dog', 'hamster', 'bird']`
+* C) `['cat', 'dog', 'fish', 'hamster']`
+* D) `['cat', 'dog', 'fish', 'bird', 'hamster']`
 
 ```{admonition} Answer:
 :class: toggle
@@ -561,10 +575,11 @@ print(scores[1] + scores[3])
 ```
 
 What does this print?
-- A) `[88, 72, 95, 75, 84]` and `147`
-- B) `[88, 72, 95, 60, 84]` and `132`
-- C) `[88, 72, 95, 75, 84]` and `167`
-- D) `[88, 72, 95, 75, 84]` and `155`
+
+* A) `[88, 72, 95, 75, 84]` and `147`
+* B) `[88, 72, 95, 60, 84]` and `132`
+* C) `[88, 72, 95, 75, 84]` and `167`
+* D) `[88, 72, 95, 75, 84]` and `155`
 
 ```{admonition} Answer:
 :class: toggle
@@ -584,10 +599,11 @@ print(vals[3:])
 ```
 
 What does this print?
-- A) `[20, 30]`, `[10, 20]`, `[40, 50]`
-- B) `[20, 30, 40]`, `[10, 20]`, `[40, 50]`
-- C) `[10, 20, 30]`, `[10, 20]`, `[30, 40, 50]`
-- D) `[20, 30]`, `[10, 20, 30]`, `[40, 50]`
+
+* A) `[20, 30]`, `[10, 20]`, `[40, 50]`
+* B) `[20, 30, 40]`, `[10, 20]`, `[40, 50]`
+* C) `[10, 20, 30]`, `[10, 20]`, `[30, 40, 50]`
+* D) `[20, 30]`, `[10, 20, 30]`, `[40, 50]`
 
 ```{admonition} Answer:
 :class: toggle
@@ -603,10 +619,11 @@ There are a great many other built-in operations in Python that let you do thing
 ### Collection functions
 
 Python has built in functions that operate on lists as arguments
-- `len()`
-- math ones: `max()`, `min()`, `sum()`
-- `sorted()`
-- look for the ones that have an "iterable" as as parameter type here: https://docs.python.org/3/library/functions.html
+
+* `len()`
+* math ones: `max()`, `min()`, `sum()`
+* `sorted()`
+* look for the ones that have an "iterable" as as parameter type here: <https://docs.python.org/3/library/functions.html>
 
 These are functions, so mechanics are just like functions - function name, pass in list as an **input** argument, plus whatever other arguments might be needed, and get back some **output** value
 
@@ -632,6 +649,7 @@ print(sum(x)/len(x)) # average, using sum and len
 ```
 
 NOTE: you can't use any of these math-y functions with lists of "not-numbers". For example, the following code will yield a `TypeError`:
+
 ```
 list_of_strings = [
     "she",
@@ -643,13 +661,14 @@ list_of_strings = [
 ]
 sum(list_of_strings)
 ```
+
 ### List methods
 
-Python lists also have *methods*. 
+Python lists also have *methods*.
 
 in Python, methods are like functions that only certain kinds of objects (e.g., list) can do. We'll see that many of the data structures in Python are like this, including strings in 2 weeks. And you can also create your own objects! You will learn much more about this in 326 - this is "object oriented programming".
 
-All of the list methods are listed (no pun intended!) here: https://docs.python.org/3/tutorial/datastructures.html
+All of the list methods are listed (no pun intended!) here: <https://docs.python.org/3/tutorial/datastructures.html>
 
 Here are some common examples:
 
@@ -694,14 +713,14 @@ And in pictures:
 :align: center
 ```
 
-Note: mutating list methods like `.sort()`, `.append()`, and `.insert()` change the list itself; they do *not* return a new value. Like your functions that lack return statements, their return value is `None`. (Other list methods like `.count()` and `.index()` do return values without modifying the list.) 
+Note: mutating list methods like `.sort()`, `.append()`, and `.insert()` change the list itself; they do *not* return a new value. Like your functions that lack return statements, their return value is `None`. (Other list methods like `.count()` and `.index()` do return values without modifying the list.)
 
 ```{code-cell} ipython3
 result = a_list.sort()
 print(result)
 ```
 
-If you want to keep the original list instead of modifying it directly, you should use the collection functions (e.g., `sorted()` instead of `list.sort()`). 
+If you want to keep the original list instead of modifying it directly, you should use the collection functions (e.g., `sorted()` instead of `list.sort()`).
 
 ```{code-cell} ipython3
 a_list = [5,2,7,10,3]
@@ -736,14 +755,16 @@ list(filter(is_odd, x))
 ```
 
 Meta-points here
-- Get in the habit of suspecting that something you want to do probably already has a function/method written for it that you can use (that probably does it well)
-- Notice the docstrings!
+
+* Get in the habit of suspecting that something you want to do probably already has a function/method written for it that you can use (that probably does it well)
+* Notice the docstrings!
 
 +++ {"id": "-iQvhWi7KGAg"}
 
 Try a couple more!
 
 Remove "milk" from your grocery list, and add "butter" and "cookies" to the end of your list.
+
 ```
 groceries = ["milk", "eggs", "ramen", "juice"]
 # remove milk
@@ -754,6 +775,7 @@ groceries = ["milk", "eggs", "ramen", "juice"]
 ```
 
 Complete the code for this function to add a new guest to a list of table_guests, but only if there is still room (i.e., length of table guests is under the table limit)
+
 ```
 def add_to_table(table_guests, new_guest, table_limit):
     # check if the length of table_guests is current less than table_limit
@@ -772,6 +794,7 @@ add_to_table(["joel", "sara", "nehal", "christian"], "wayde", 4)
 ```
 
 Complete the code for this function to keep the top n largest numbers in a list of numbers, making sure not to try to return more numbers than actually exist in the list!
+
 ```
 def keep_biggest_n(nums, n):
     # sort nums
@@ -786,107 +809,6 @@ def keep_biggest_n(nums, n):
 
 keep_biggest_n([5, 10, 2, 11, 60, 1000], 10)
 ```
-
-<!-- ### Trace 6
-
-```{code-cell} ipython3
-:tags: [remove-output]
-letters = ["a", "b", "c"]
-letters.append("d")
-print(letters)
-print(letters[3])
-print(len(letters))
-```
-
-What does this print?
-- A) `['a', 'b', 'c', 'd']`, then `d`, then `4`
-- B) `['a', 'b', 'c', 'd']`, then Error, then `4`
-- C) `['a', 'b', 'c', 'd']`, then `d`, then `3`
-- D) `['a', 'b', 'c']`, then Error, then `3`
-
-```{admonition} Answer:
-:class: toggle
-**A)** `['a', 'b', 'c', 'd']`, then `d`, then `4`
-
-`append()` adds `"d"` to the end of the list. It becomes index 3 (the 4th item), and `len()` returns `4`. If you picked C, remember that `append()` increases the length by 1. If you picked D, remember that `append()` modifies the list itself.
-``` -->
-
-
-
-<!-- ### Trace 8
-
-```{code-cell} ipython3
-:tags: [remove-output]
-data = [5, 10, 15, 20, 25]
-data[1] = 99
-data.append(30)
-print(data[1:4])
-print(data[-2:])
-```
-
-What does this print?
-- A) `[10, 15, 20]` and `[20, 25]`
-- B) `[99, 15, 20]` and `[25, 30]`
-- C) `[99, 15, 20]` and `[20, 25]`
-- D) `[99, 15, 20, 25]` and `[25, 30]`
-
-```{admonition} Answer:
-:class: toggle
-**B)** `[99, 15, 20]` and `[25, 30]`
-
-After mutation, `data` is `[5, 99, 15, 20, 25, 30]` (6 items). Slice `[1:4]` gives indices 1, 2, 3 → `[99, 15, 20]`. Slice `[-2:]` gives the last two items → `[25, 30]`. If you picked A, you forgot the mutations. If you picked C, you forgot that `append(30)` added a 6th item.
-```
-
-### Trace 9
-
-```{code-cell} ipython3
-:tags: [remove-output]
-result = []
-result.append(10)
-result.append(20)
-result.append(30)
-result[1] = 25
-print(result)
-print(result[0] + result[-1])
-```
-
-What does this print?
-- A) `[10, 20, 30]` and `40`
-- B) `[10, 25, 30]` and `40`
-- C) `[10, 25, 30]` and `35`
-- D) `[25, 20, 30]` and `55`
-
-```{admonition} Answer:
-:class: toggle
-**B)** `[10, 25, 30]` and `40`
-
-We build the list by appending: `[10, 20, 30]`. Then `result[1] = 25` changes index 1 from 20 to 25: `[10, 25, 30]`. Finally, `result[0] + result[-1]` is `10 + 30 = 40`. If you picked C, note that `result[-1]` is `30` (last item), not `25`. If you picked D, note that `result[1] = 25` changes index 1, not index 0.
-```
-
-### Trace 10
-
-```{code-cell} ipython3
-:tags: [remove-output]
-a = [1, 2, 3]
-b = a
-b.append(4)
-print(a)
-print(b)
-print(a is b)
-```
-
-What does this print?
-- A) `[1, 2, 3]`, `[1, 2, 3, 4]`, `False`
-- B) `[1, 2, 3, 4]`, `[1, 2, 3, 4]`, `True`
-- C) `[1, 2, 3]`, `[1, 2, 3, 4]`, `True`
-- D) `[1, 2, 3, 4]`, `[1, 2, 3, 4]`, `False`
-
-```{admonition} Answer:
-:class: toggle
-**B)** `[1, 2, 3, 4]`, `[1, 2, 3, 4]`, `True`
-
-This is tricky! `b = a` does **not** make a copy. Both `a` and `b` point to the *same* list in memory. So when we append to `b`, `a` also changes. This is called **aliasing**. If you picked A or C, you assumed `a` and `b` are separate lists — but they're not! If you wanted a separate copy, you'd need `b = a.copy()` or `b = list(a)`.
-``` -->
 
 ## Practice: Code Tracing with List Methods and Functions
 
@@ -903,10 +825,11 @@ print(len(nums))
 ```
 
 What does this print?
-- A) `5` and `5`
-- B) `5` and `6`
-- C) `6` and `6`
-- D) `4` and `5`
+
+* A) `5` and `5`
+* B) `5` and `6`
+* C) `6` and `6`
+* D) `4` and `5`
 
 ```{admonition} Answer:
 :class: toggle
@@ -926,10 +849,11 @@ print(colors)
 ```
 
 What does this print?
-- A) `['red', 'green', 'blue', 'yellow']` and `['red', 'green', 'blue', 'yellow']`
-- B) `yellow` and `['red', 'green', 'blue', 'yellow']`
-- C) `None` and `['red', 'green', 'blue', 'yellow']`
-- D) `None` and `['red', 'green', 'blue']`
+
+* A) `['red', 'green', 'blue', 'yellow']` and `['red', 'green', 'blue', 'yellow']`
+* B) `yellow` and `['red', 'green', 'blue', 'yellow']`
+* C) `None` and `['red', 'green', 'blue', 'yellow']`
+* D) `None` and `['red', 'green', 'blue']`
 
 ```{admonition} Answer:
 :class: toggle
@@ -949,10 +873,11 @@ print(vals)
 ```
 
 What does this print?
-- A) `[1, 2, 5, 8, 9]` and `[1, 2, 5, 8, 9]`
-- B) `[1, 2, 5, 8, 9]` and `[5, 2, 8, 1, 9]`
-- C) `None` and `[5, 2, 8, 1, 9]`
-- D) `None` and `[1, 2, 5, 8, 9]`
+
+* A) `[1, 2, 5, 8, 9]` and `[1, 2, 5, 8, 9]`
+* B) `[1, 2, 5, 8, 9]` and `[5, 2, 8, 1, 9]`
+* C) `None` and `[5, 2, 8, 1, 9]`
+* D) `None` and `[1, 2, 5, 8, 9]`
 
 ```{admonition} Answer:
 :class: toggle
@@ -972,10 +897,11 @@ print(new_list)
 ```
 
 What does this print?
-- A) `[1, 2, 5, 8, 9]` and `[1, 2, 5, 8, 9]`
-- B) `[5, 2, 8, 1, 9]` and `None`
-- C) `[5, 2, 8, 1, 9]` and `[1, 2, 5, 8, 9]`
-- D) `[1, 2, 5, 8, 9]` and `[5, 2, 8, 1, 9]`
+
+* A) `[1, 2, 5, 8, 9]` and `[1, 2, 5, 8, 9]`
+* B) `[5, 2, 8, 1, 9]` and `None`
+* C) `[5, 2, 8, 1, 9]` and `[1, 2, 5, 8, 9]`
+* D) `[1, 2, 5, 8, 9]` and `[5, 2, 8, 1, 9]`
 
 ```{admonition} Answer:
 :class: toggle
@@ -994,10 +920,11 @@ print(grades.count(100))
 ```
 
 What does this print?
-- A) `3` and Error
-- B) `2` and `0`
-- C) `3` and `0`
-- D) `1` and `0`
+
+* A) `3` and Error
+* B) `2` and `0`
+* C) `3` and `0`
+* D) `1` and `0`
 
 ```{admonition} Answer:
 :class: toggle
@@ -1016,10 +943,11 @@ print(names.index("Amy"))
 ```
 
 What does this print?
-- A) `3` and `1`
-- B) `2` and `0`
-- C) `3` and `0`
-- D) `2` and `1`
+
+* A) `3` and `1`
+* B) `2` and `0`
+* C) `3` and `0`
+* D) `2` and `1`
 
 ```{admonition} Answer:
 :class: toggle
@@ -1039,10 +967,11 @@ print(sum(temps))
 ```
 
 What does this print?
-- A) `68`, `85`, `370`
-- B) `55`, `90`, `370`
-- C) `55`, `90`, `74`
-- D) `72`, `90`, `370`
+
+* A) `68`, `85`, `370`
+* B) `55`, `90`, `370`
+* C) `55`, `90`, `74`
+* D) `72`, `90`, `370`
 
 ```{admonition} Answer:
 :class: toggle
@@ -1062,10 +991,11 @@ print(len(tasks))
 ```
 
 What does this print?
-- A) `['email', 'gym', 'homework', 'laundry']` and `4`
-- B) `['gym', 'email', 'homework', 'laundry']` and `4`
-- C) `['email', 'homework', 'gym', 'laundry']` and `4`
-- D) `['email', 'gym', 'homework', 'laundry']` and `3`
+
+* A) `['email', 'gym', 'homework', 'laundry']` and `4`
+* B) `['gym', 'email', 'homework', 'laundry']` and `4`
+* C) `['email', 'homework', 'gym', 'laundry']` and `4`
+* D) `['email', 'gym', 'homework', 'laundry']` and `3`
 
 ```{admonition} Answer:
 :class: toggle
@@ -1085,10 +1015,11 @@ print(items.count("apple"))
 ```
 
 What does this print?
-- A) `['banana', 'cherry']` and `0`
-- B) `['banana', 'apple', 'cherry', 'apple']` and `2`
-- C) `['apple', 'banana', 'cherry', 'apple']` and `2`
-- D) `['banana', 'apple', 'cherry']` and `1`
+
+* A) `['banana', 'cherry']` and `0`
+* B) `['banana', 'apple', 'cherry', 'apple']` and `2`
+* C) `['apple', 'banana', 'cherry', 'apple']` and `2`
+* D) `['banana', 'apple', 'cherry']` and `1`
 
 ```{admonition} Answer:
 :class: toggle
@@ -1109,10 +1040,11 @@ print(sum(top_three) / len(top_three))
 ```
 
 What does this print?
-- A) `[75, 80, 100]` and `85.0`
-- B) `[40, 60, 75]` and `58.33`
-- C) `[80, 100, 75]` and `85.0`
-- D) `[75, 80, 100]` and `255`
+
+* A) `[75, 80, 100]` and `85.0`
+* B) `[40, 60, 75]` and `58.33`
+* C) `[80, 100, 75]` and `85.0`
+* D) `[75, 80, 100]` and `255`
 
 ```{admonition} Answer:
 :class: toggle
@@ -1135,10 +1067,11 @@ print(inventory.count("potion"))
 ```
 
 What does this print?
-- A) `['arrow', 'bow', 'potion', 'shield', 'sword']`, `arrow`, `1`
-- B) `['arrow', 'bow', 'shield', 'sword']`, `arrow`, `0`
-- C) `['arrow', 'bow', 'potion', 'potion', 'shield', 'sword']`, `arrow`, `2`
-- D) `['arrow', 'bow', 'potion', 'shield', 'sword']`, `arrow`, `0`
+
+* A) `['arrow', 'bow', 'potion', 'shield', 'sword']`, `arrow`, `1`
+* B) `['arrow', 'bow', 'shield', 'sword']`, `arrow`, `0`
+* C) `['arrow', 'bow', 'potion', 'potion', 'shield', 'sword']`, `arrow`, `2`
+* D) `['arrow', 'bow', 'potion', 'shield', 'sword']`, `arrow`, `0`
 
 ```{admonition} Answer:
 :class: toggle
@@ -1160,10 +1093,11 @@ print(b)
 ```
 
 What does this print?
-- A) `True`, `True`, `[1, 3, 4, 7, 9]`
-- B) `True`, `False`, `None`
-- C) `False`, `False`, `None`
-- D) `True`, `True`, `None`
+
+* A) `True`, `True`, `[1, 3, 4, 7, 9]`
+* B) `True`, `False`, `None`
+* C) `False`, `False`, `None`
+* D) `True`, `True`, `None`
 
 ```{admonition} Answer:
 :class: toggle
@@ -1186,10 +1120,11 @@ print(len(playlist))
 ```
 
 What does this print?
-- A) `['blues', 'jazz', 'funk', 'rock', 'pop', 'soul']`, `4`, `6`
-- B) `['blues', 'funk', 'jazz', 'rock', 'pop', 'soul']`, `4`, `6`
-- C) `['blues', 'jazz', 'funk', 'rock', 'pop', 'soul']`, `3`, `6`
-- D) `['jazz', 'blues', 'rock', 'funk', 'pop', 'soul']`, `4`, `6`
+
+* A) `['blues', 'jazz', 'funk', 'rock', 'pop', 'soul']`, `4`, `6`
+* B) `['blues', 'funk', 'jazz', 'rock', 'pop', 'soul']`, `4`, `6`
+* C) `['blues', 'jazz', 'funk', 'rock', 'pop', 'soul']`, `3`, `6`
+* D) `['jazz', 'blues', 'rock', 'funk', 'pop', 'soul']`, `4`, `6`
 
 ```{admonition} Answer:
 :class: toggle
@@ -1212,10 +1147,11 @@ print(data)
 ```
 
 What does this print?
-- A) `[10, 20, 50, 40, 30]` and `[10, 20, 50, 40, 30]`
-- B) `[10, 20, 50, 40, 30]` and `[10, 20, 30, 40, 50]`
-- C) `[50, 40, 30, 10, 20]` and `[10, 20, 30, 40, 50]`
-- D) `[10, 20, 30, 40, 50]` and `[10, 20, 30, 40, 50]`
+
+* A) `[10, 20, 50, 40, 30]` and `[10, 20, 50, 40, 30]`
+* B) `[10, 20, 50, 40, 30]` and `[10, 20, 30, 40, 50]`
+* C) `[50, 40, 30, 10, 20]` and `[10, 20, 30, 40, 50]`
+* D) `[10, 20, 30, 40, 50]` and `[10, 20, 30, 40, 50]`
 
 ```{admonition} Answer:
 :class: toggle
@@ -1236,10 +1172,11 @@ print(sum(readings) / len(readings))
 ```
 
 What does this print?
-- A) `[72, 85, 90, 68]` and `78.75`
-- B) `[85, 90, 68, 95]` and `84.5`
-- C) `[72, 85, 90, 68]` and `315`
-- D) `[72, 85, 68, 90]` and `78.75`
+
+* A) `[72, 85, 90, 68]` and `78.75`
+* B) `[85, 90, 68, 95]` and `84.5`
+* C) `[72, 85, 90, 68]` and `315`
+* D) `[72, 85, 68, 90]` and `78.75`
 
 ```{admonition} Answer:
 :class: toggle
@@ -1514,6 +1451,7 @@ Using `sorted()` creates a new list, so the original is safe. Then `remove()` ta
 ### P14 - Build a roster
 
 Write a function `build_roster(names)` that takes a list of names and returns a new list that is:
+
 1. Sorted alphabetically
 2. Has no duplicates (each name appears only once)
 
@@ -1575,6 +1513,7 @@ First check membership with `in`. If found, `remove()` takes it out, then `inser
 ### P16 - Compute a trimmed average
 
 Write a function `trimmed_average(scores, n)` that:
+
 1. Sorts the scores
 2. Removes the `n` lowest and `n` highest scores
 3. Returns the average of the remaining scores
@@ -1641,7 +1580,6 @@ print(runner_up([42]))
 We first build a list of unique values (like P14), then sort and grab the second-to-last item with `[-2]`. This combines `in`, `append()`, `len()`, `sort()`, and negative indexing. Output: `88`, `None`, `None`.
 ````
 
-
 ## Common errors
 
 ### Forgetting that indices start at 0
@@ -1657,13 +1595,13 @@ a[1]
 
 Another common error is to try to get something from an index position that doesn't yet exist in a list.
 
-For example, the list `x = [1, 4, 5]` has 3 items (has length 3). 
+For example, the list `x = [1, 4, 5]` has 3 items (has length 3).
 
 But! If I want to get the 3rd item with `x[3]`, I will get an IndexError, because the item only has indices that go up to 2!
 
 Sometimes this happens if you forget 0-indexing, and try to get the "3rd item" with index 3 (instead of the correct index 2).
 
-We'll return to this error next week, because it often shows up with iteration 
+We'll return to this error next week, because it often shows up with iteration
 
 ```{code-cell} ipython3
 x = [1, 4, 5]

@@ -189,6 +189,15 @@ Alternately, our Data Flow Chart:
 :align: center
 ```
 
+In this example, the key elements were:
+
+* Operations: *extract* email address from email record, *extract* username from
+  email, *add* email to filtered emails list if the username isn't in the
+  blocked username list
+* Data: *raw email list*, *filtered emails*, etc.
+* Logic: *loop* over every email, *conditional* for the adding operation,
+  sequence between the operations.
+
 Side note - see how this process is not perfect! Simple models cannot completely
 match the true scenario. See how I added a cylinder for the email filter list -
 I was thinking it would be a variable in our code, which doesn't have a representation
@@ -200,15 +209,6 @@ Another thing - there's actually no direct connection for the one email on proce
 1.0 and the 3.0 process. We know it's getting there somehow, but it probably would
 have required adding some intermediary components to truly track it properly. So
 I have left it implicit here.
-
-In this example, the key elements were:
-
-* Operations: *extract* email address from email record, *extract* username from
-  email, *add* email to filtered emails list if the username isn't in the
-  blocked username list
-* Data: *raw email list*, *filtered emails*, etc.
-* Logic: *loop* over every email, *conditional* for the adding operation,
-  sequence between the operations.
 
 Here is another simple example: I'm going to give you a list of numbers, and I
 want you to give me back a list that only has odd numbers in it:
