@@ -20,8 +20,9 @@ Loops are a fundamental building block of computational solutions to problems. T
 Loops are especially useful because it's hard to build programs without a concise way to instruct the computer to do *repeated actions*.
 
 Here are some simple examples. Try to think of how you might solve these without loops!
-- Put 6 cups of flour into a box
-- Stir occasionally until the sauce starts to reduce
+
+* Put 6 cups of flour into a box
+* Stir occasionally until the sauce starts to reduce
 
 With loops these get a LOT easier to specify, and become more robust and reusable too.
 
@@ -45,12 +46,13 @@ while check_sauce() != "thick":
     stir()
 ```
 
-Loops also enable many useful algorithms/patterns that go nicely with lists. You'll be practicing and applying them in PCEs and Projects this module!
+Loops also enable many useful algorithms/patterns that go nicely with lists. You'll be practicing and applying them in Programming Exerci and Projects this module!
 
 For example:
-- Searching through a list
-- Filtering a list of items
-- Counting occurrences in some collection
+
+* Searching through a list
+* Filtering a list of items
+* Counting occurrences in some collection
 
 Continuing with our running example for this module, here are loops in the context of a program:
 
@@ -93,17 +95,18 @@ Use definite/for when you know in advance how many times you want to do somethin
 This is the use case in our running example.
 
 Other examples:
-- Do an action N times
-- Take M steps
-- Do something for every item in a finite list
+
+* Do an action N times
+* Take M steps
+* Do something for every item in a finite list
 
 ### Anatomy of a definite (for) loop in Python
 
 Let's take a closer look.
 
-- The **iteration variable** "iterates" through the **sequence** (ordered set)
-- The **block (body)** of code is executed once for each value **in** the **sequence**
-- The **iteration variable** moves through all of the values in the **sequence**
+* The **iteration variable** "iterates" through the **sequence** (ordered set)
+* The **block (body)** of code is executed once for each value **in** the **sequence**
+* The **iteration variable** moves through all of the values in the **sequence**
 
 ```{code-cell} ipython3
 nums = [5, 4, 3, 2, 1]
@@ -227,16 +230,17 @@ for i in range(4):
 ```
 
 What does this print?
-- A) `1 2 3 4`
-- B) `0 1 2 3`
-- C) `0 1 2 3 4`
-- D) `1 2 3`
+
+* A) `1 2 3 4`
+* B) `0 1 2 3`
+* C) `0 1 2 3 4`
+* D) `1 2 3`
 
 ```{admonition} Answer:
 :class: toggle
 **B)** `0 1 2 3` (each on its own line)
 
-`range(4)` produces `0, 1, 2, 3` — it starts at 0 and stops **before** 4. If you picked A, remember that `range` starts at 0 by default. If you picked C, remember the upper bound is exclusive.
+`range(4)` produces `0, 1, 2, 3` - it starts at 0 and stops **before** 4. If you picked A, remember that `range` starts at 0 by default. If you picked C, remember the upper bound is exclusive.
 ```
 
 #### Trace 2
@@ -250,16 +254,17 @@ print(count)
 ```
 
 What does this print?
-- A) `4`
-- B) `5`
-- C) `e`
-- D) `0`
+
+* A) `4`
+* B) `5`
+* C) `e`
+* D) `0`
 
 ```{admonition} Answer:
 :class: toggle
 **B)** `5`
 
-The loop runs once per item in the list (5 items), and each time it increments `count` by 1. Note that `print(count)` is **outside** the loop (not indented under `for`), so it only prints the final value. If you picked A, you may be thinking `range` stops before the end — but this loop iterates over a list directly, once per item.
+The loop runs once per item in the list (5 items), and each time it increments `count` by 1. Note that `print(count)` is **outside** the loop (not indented under `for`), so it only prints the final value. If you picked A, you may be thinking `range` stops before the end - but this loop iterates over a list directly, once per item.
 ```
 
 #### Trace 3
@@ -273,10 +278,11 @@ for num in [10, 20, 30]:
 ```
 
 What does this print?
-- A) `60`
-- B) `10 20 30`
-- C) `10 30 60`
-- D) `0 10 30`
+
+* A) `60`
+* B) `10 20 30`
+* C) `10 30 60`
+* D) `0 10 30`
 
 ```{admonition} Answer:
 :class: toggle
@@ -295,16 +301,17 @@ print("done")
 ```
 
 What does this print?
-- A) `hello` once, then `done`
-- B) `hello` three times, then `done`
-- C) `hello` three times (no `done`)
-- D) `hello` four times, then `done`
+
+* A) `hello` once, then `done`
+* B) `hello` three times, then `done`
+* C) `hello` three times (no `done`)
+* D) `hello` four times, then `done`
 
 ```{admonition} Answer:
 :class: toggle
 **B)** `hello` three times, then `done`
 
-`range(3)` gives `0, 1, 2` — three values, so the loop body runs 3 times. `print("done")` is outside the loop (not indented), so it runs once after the loop finishes. If you picked C, look at the indentation — `print("done")` is at the same level as `for`, not inside the body.
+`range(3)` gives `0, 1, 2` - three values, so the loop body runs 3 times. `print("done")` is outside the loop (not indented), so it runs once after the loop finishes. If you picked C, look at the indentation - `print("done")` is at the same level as `for`, not inside the body.
 ```
 
 #### Trace 5
@@ -318,10 +325,11 @@ print(result)
 ```
 
 What does this print?
-- A) `[3, 1, 4]`
-- B) `[6, 2, 8]`
-- C) `[6]`
-- D) `[8]`
+
+* A) `[3, 1, 4]`
+* B) `[6, 2, 8]`
+* C) `[6]`
+* D) `[8]`
 
 ```{admonition} Answer:
 :class: toggle
@@ -339,10 +347,11 @@ for i in range(1, 6):
 ```
 
 What does this print?
-- A) `0 1 2 3 4 5`
-- B) `1 2 3 4 5`
-- C) `1 2 3 4 5 6`
-- D) `0 1 2 3 4`
+
+* A) `0 1 2 3 4 5`
+* B) `1 2 3 4 5`
+* C) `1 2 3 4 5 6`
+* D) `0 1 2 3 4`
 
 ```{admonition} Answer:
 :class: toggle
@@ -362,10 +371,11 @@ print(x)
 ```
 
 What does this print?
-- A) `10`
-- B) `7`
-- C) `4`
-- D) `1`
+
+* A) `10`
+* B) `7`
+* C) `4`
+* D) `1`
 
 ```{admonition} Answer:
 :class: toggle
@@ -385,16 +395,17 @@ for word in words:
 ```
 
 What does this print?
-- A) `hi there world`
-- B) `there world`
-- C) `there`
-- D) Nothing (no output)
+
+* A) `hi there world`
+* B) `there world`
+* C) `there`
+* D) Nothing (no output)
 
 ```{admonition} Answer:
 :class: toggle
 **B)** `there` and `world` (each on its own line)
 
-The loop checks each word's length. `"hi"` has length 2 (not > 3, skipped). `"there"` has length 5 (printed). `"world"` has length 5 (printed). If you picked C, you may have thought `>` means "strictly greater" and `"world"` is exactly 5 — but 5 > 3 is `True`!
+The loop checks each word's length. `"hi"` has length 2 (not > 3, skipped). `"there"` has length 5 (printed). `"world"` has length 5 (printed). If you picked C, you may have thought `>` means "strictly greater" and `"world"` is exactly 5 - but 5 > 3 is `True`!
 ```
 
 #### Trace 9
@@ -407,16 +418,17 @@ for i in range(len(nums)):
 ```
 
 What does this print?
-- A) `5 10 15 20`
-- B) `0 5`, `1 10`, `2 15`, `3 20`
-- C) `1 5`, `2 10`, `3 15`, `4 20`
-- D) `0 10`, `1 15`, `2 20`
+
+* A) `5 10 15 20`
+* B) `0 5`, `1 10`, `2 15`, `3 20`
+* C) `1 5`, `2 10`, `3 15`, `4 20`
+* D) `0 10`, `1 15`, `2 20`
 
 ```{admonition} Answer:
 :class: toggle
 **B)** `0 5`, `1 10`, `2 15`, `3 20` (each pair on its own line)
 
-`range(len(nums))` is `range(4)`, which gives `0, 1, 2, 3`. Each iteration, `i` is the index and `nums[i]` is the value at that index. This is the index-based iteration pattern — useful when you need both the position and the value.
+`range(len(nums))` is `range(4)`, which gives `0, 1, 2, 3`. Each iteration, `i` is the index and `nums[i]` is the value at that index. This is the index-based iteration pattern - useful when you need both the position and the value.
 ```
 
 #### Trace 10
@@ -431,16 +443,17 @@ print(len(result))
 ```
 
 What does this print?
-- A) `P y t h o n` and `6`
-- B) `Python` and `6`
-- C) `n` and `1`
-- D) `Python` and `11`
+
+* A) `P y t h o n` and `6`
+* B) `Python` and `6`
+* C) `n` and `1`
+* D) `Python` and `11`
 
 ```{admonition} Answer:
 :class: toggle
 **B)** `Python` and `6`
 
-String concatenation (`+`) joins without spaces. Each iteration adds one letter to `result`: `""` → `"P"` → `"Py"` → `"Pyt"` → ... → `"Python"`. The final string has 6 characters. This is the **accumulator pattern** — building up a result across iterations, just like accumulating a sum, but with strings instead of numbers.
+String concatenation (`+`) joins without spaces. Each iteration adds one letter to `result`: `""` → `"P"` → `"Py"` → `"Pyt"` → ... → `"Python"`. The final string has 6 characters. This is the **accumulator pattern** - building up a result across iterations, just like accumulating a sum, but with strings instead of numbers.
 ```
 
 ### Common design patterns with definite loops
@@ -685,7 +698,7 @@ grades
 
 #### Coordinated iteration across one or more sequences
 
-How do you go through the elements of a list, index by index? 
+How do you go through the elements of a list, index by index?
 
 In our for loops above that iterated through items in a list, we typically had an iteration variable that directly stored an item from the list at each step.
 
@@ -759,9 +772,10 @@ One of problems for Project 2 (the rock paper scissors problem) relies on precis
 Sometimes you want to repeat actions, but you don't know in advance how many times you want to repeat. But you do have a clear idea of **when to stop** (or equivalently, **when to keep going**). In this situation, you can use indefinite loops.
 
 Examples:
-- Keep going until I tell you to stop
-- Keep stirring until the sauce thickens
-- Keep taking candy from the box until your bucket is full or the box is empty
+
+* Keep going until I tell you to stop
+* Keep stirring until the sauce thickens
+* Keep taking candy from the box until your bucket is full or the box is empty
 
 Use indefinite/while when you don't know in advance how many times you want to do something, but can clearly express when to stop (or keep going).
 
@@ -769,12 +783,12 @@ Use indefinite/while when you don't know in advance how many times you want to d
 
 The `while` loop checks a **condition** before each iteration. The loop keeps running as long as the condition is `True`, and stops as soon as it becomes `False`.
 
-- The **condition** is a *Boolean expression* that controls whether the loop continues
-  - `while steps < limit:` → keep going as long as steps is under the limit
-  - `while not found:` → keep going as long as we haven't found it yet
-  - In both cases, the loop stops when the expression evaluates to `False`
-- The **block (body)** of code is executed once for each iteration in the loop
-- **Condition update**: It is essential that the body of the loop does something that can eventually make the condition `False` — otherwise the loop runs forever!
+* The **condition** is a *Boolean expression* that controls whether the loop continues
+  * `while steps < limit:` → keep going as long as steps is under the limit
+  * `while not found:` → keep going as long as we haven't found it yet
+  * In both cases, the loop stops when the expression evaluates to `False`
+* The **block (body)** of code is executed once for each iteration in the loop
+* **Condition update**: It is essential that the body of the loop does something that can eventually make the condition `False` — otherwise the loop runs forever!
 
 ```{code-cell} ipython3
 # keep taking steps until you hit a limit
@@ -829,7 +843,7 @@ Again, it's helpful to copy-paste one of these programs into [python tutor](http
 
 ### Some applications of indefinite loops
 
-#### Generically: keep doing something until...
+#### Generically: keep doing something until
 
 Keep adding characters to a string until it is a defined length, e.g., 10
 
@@ -899,7 +913,7 @@ Notice how we use **two** conditions joined by `and`: the loop keeps going as lo
 
 Later in this chapter we'll learn about `break`, which gives us another way to exit a loop early.
 
-#### All of the definite loops we saw earlier can be implemented with indefinite loops!
+#### All of the definite loops we saw earlier can be implemented with indefinite loops
 
 ```{code-cell} ipython3
 # input list
@@ -941,10 +955,10 @@ while x > 0:
 
 **What is the output?**
 
-- A) `10` `7` `4` `1`
-- B) `10` `7` `4`
-- C) `7` `4` `1`
-- D) `10` `7` `4` `1` `-2`
+* A) `10` `7` `4` `1`
+* B) `10` `7` `4`
+* C) `7` `4` `1`
+* D) `10` `7` `4` `1` `-2`
 
 ````{admonition} Answer:
 :class: toggle
@@ -976,10 +990,10 @@ print(n, count)
 
 **What is the output?**
 
-- A) `64 6`
-- B) `128 7`
-- C) `100 7`
-- D) `256 8`
+* A) `64 6`
+* B) `128 7`
+* C) `100 7`
+* D) `256 8`
 
 ````{admonition} Answer:
 :class: toggle
@@ -1003,10 +1017,10 @@ print(i)
 
 **What is the output?**
 
-- A) `9`
-- B) `4`
-- C) `3`
-- D) `5`
+* A) `9`
+* B) `4`
+* C) `3`
+* D) `5`
 
 ````{admonition} Answer:
 :class: toggle
@@ -1039,10 +1053,10 @@ print(total)
 
 **What is the output?**
 
-- A) `24`
-- B) `16`
-- C) `10`
-- D) `8`
+* A) `24`
+* B) `16`
+* C) `10`
+* D) `8`
 
 ````{admonition} Answer:
 :class: toggle
@@ -1075,10 +1089,10 @@ print(result)
 
 **What is the output?**
 
-- A) `["cat", "dog", "bird", "fish"]`
-- B) `["fish", "bird", "dog", "cat"]`
-- C) `["fish"]`
-- D) `["bird", "dog", "cat"]`
+* A) `["cat", "dog", "bird", "fish"]`
+* B) `["fish", "bird", "dog", "cat"]`
+* C) `["fish"]`
+* D) `["bird", "dog", "cat"]`
 
 ````{admonition} Answer:
 :class: toggle
@@ -1109,10 +1123,10 @@ print(i, len(values))
 
 **What is the output?**
 
-- A) `4 6`
-- B) `6 6`
-- C) `5 6`
-- D) `10 6`
+* A) `4 6`
+* B) `6 6`
+* C) `5 6`
+* D) `10 6`
 
 ````{admonition} Answer:
 :class: toggle
@@ -1165,7 +1179,7 @@ print('Done!')
 
 ## Common errors
 
-### Indentation is key!
+### Indentation is key
 
 The way that Python knows what counts as the body of code for a loop (whether definite or indefinite) is through indentation.
 
