@@ -240,7 +240,7 @@ d = {
 }
 ```
 
-If we include the same key multiple times, it will get the *last* value:
+If we include the same key multiple times, it will only store the *last* value:
 
 ```{code-cell} ipython3
 my_dictionary = {
