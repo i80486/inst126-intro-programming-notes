@@ -17,10 +17,11 @@ kernelspec:
 
 Dictionaries are for **associating data** and **quick lookup**
 
-Motivating example: I am making an index for a book, because I want to know which concepts show up on which pages, to make it easier to jump back to the right spots.
+Let's think about this example for a second. I want to make an index for a book. Why? Indicies allow us to
+look for a topic and then jump to section(s) of the book that discuss this topic!
 
 ```{code-cell} ipython3
-# how to know which chapters talk about strings? or debugging?
+# How could I figure out which chapters talk about strings? What about debugging?
 book = [
   "Chapter 1: talks about strings and how they have the property of immutability also some basic debugging",
   "Chapter 2: continues talking about advanced methods for strings and also introduces the concept of functions",
@@ -31,83 +32,102 @@ book = [
 Here's what it might look like *without* dictionaries.
 
 ```{code-cell} ipython3
+# FIRST, let's transform our list into an array-based index.
+# Each array element is another array containing the concept
+# and it's associated chapter.
+
 concepts = ['strings', 'debugging', 'immutability']
 index = []
 
 for chapter in book:
-    # split into elements based on the colon
+    # split into Chapter Name and Description using the colon.
     elements = chapter.split(":")
-    # first element is the chapter
-    chapter = elements[0]
-    # second element is the text
-    text = elements[1]
+    # The first element is the chapter.
+    chapter_name = elements[0]
+    # The second element is the description.
+    description = elements[1]
 
-    # parse the text
-    words = text.split()
+    words_in_description = description.split() # split() defaults to an empty string
     for keyconcept in concepts:
-        if keyconcept in words:
-            index.append([keyconcept, chapter])
-index
+        if keyconcept in words_in_description:
+            index.append([keyconcept, chapter_name])
+print(index)
 ```
 
 ```{code-cell} ipython3
-# given this data structure, how to find
-# all the chapters that have strings in them?
-query = "strings"
-results = []
+# Given this data structure, how do we find
+# all the chapters that have the concept 'strings' in them?
+queried_concept = "strings"
+chapters_with_queried_concept = []
+
 # go through every item in the index
 for item in index:
-    concept, chapter = item
-    # if the concept matches the query
-    if query == concept:
-        results.append(chapter)
+    concept = item[0]
+    chapter_name = item[1]
+    if concept == queried_concept:
+        chapters_with_queried_concept.append(chapter)
 
 print(results)
 ```
 
-And here is what it might look like *with* dictionaries.
+And here is what *the query* might look like *with* dictionaries.
 
 ```{code-cell} ipython3
 # now consider if the concept index is in a dictionary (much more like what you might see in a book!)
-index_d = {
+dictionary_based_index = {
     'strings': ['Chapter 1', 'Chapter 2'],
     'debugging': ['Chapter 1', 'Chapter 3']
 }
 ```
 
 ```{code-cell} ipython3
-# given this data structure, how to find
-# all the chapters that have strings in them?
-query = "strings"
-index_d.get("strings")
+# Given this data structure, how do we find
+# all the chapters that have the concept "strings"" in them?
+queried_concept = "strings"
+chapters_with_queried_concept = dictionary_based_index.get(queried_concept)
+print(chapters_with_queried_concept)
 ```
 
-Another common use case: attributes of data entries. For instance, attributes of a class, like credit hours, pre-reqs, instructor, location, hours, and so on.
+Another common use case: complex data. In particular, this means data that has more than one 'attribute' (data point). For instance, there's a lot to know about your INST 126 class! Credit hours, pre-reqs, instructor, location, hours, and so on.
+
+How do we have a list of complex data items?
 
 ```{code-cell} ipython3
-# without dictionaries
+# We could try lists of lists... lists are our only 'plural'
+# data type so far.
 courses = [
-    ["INST126", 3, "no", "Chan", "hybrid", "MWF"],
+    ["INST126", 3, "no", "Erik Jones", "in-person", "MT"],
     ["INST256", 4, "yes", "Kanishka", "in-person", "TR"]
 ]
 
-# look up INST126 and check whether it has prereqs
+# Let's look up INST126 and check whether it has prereqs:
 for course in courses:
     if course[0] == "INST126":
         print(course[2])
 ```
 
-Rather than trying to remember which position we happened to have decided to use to store a particular attribute (if we used lists), we can use **semantically meaningful indices for values**, i.e., keys!
+This is messy. Not only do we have to loop through every item to find our
+desired class, but we also have to remember what each *index* in the class
+means! Wouldn't it be nice if we could have each attribute (data point)
+about our class *named* instead of assigned to a number?
 
 ```{code-cell} ipython3
-# with dictionaries
+# We sure can - if we use dictionaries!
 courses = {
     "INST126": {
-      "credit hours": 3, "prereqs": "no", "instructor": "Chan", "location": "hybrid", "hours": "MWF"
-      },
+      "credit hours": 3,
+      "prereqs": "no",
+      "instructor": "Erik Jones",
+      "location": "in-person",
+      "days": "MT"
+    },
     "INST256": {
-      "credit hours": 4, "prereqs": "yes", "instructor": "Rony", "location": "in-person", "hours": "TR"
-      },
+      "credit hours": 4,
+      "prereqs": "yes",
+      "instructor": "Kanishka",
+      "location": "in-person",
+      "hours": "TR"
+    },
 }
 
 # look up INST126 and check whether it has prereqs
@@ -116,13 +136,13 @@ courses.get("INST256").get("instructor")
 
 It's a lot easier to remember keys (if we name them useful things) compared to just indices. And Python can help us remember too!
 
-If you're interested, there are also formal technical reasons to prefer dictionaries over lists if you care about speed/efficiency and your computational task is **checking** if an item exists in a collection *and* you're dealing with very large scale data. The short version: looking up a key in a dictionary is O(1) (constant time: just 1 operation, no matter how big the dictionary is), while checking if an item is in a list is O(n) (grows with the size of the list: even though computers are pretty fast, when you get to quite large database sizes, you'll notice a difference!). See https://www.geeksforgeeks.org/python/difference-between-list-and-dictionary-in-python/ for a beginner-friendly explanation, or https://wiki.python.org/moin/TimeComplexity for the official reference.
+If you're interested, there are also formal technical reasons to prefer dictionaries over lists if you care about speed/efficiency. This is true in particular if you're working with large datasets and you're trying to see if a key (like INST 126) is present. Looking up a key in a dictionary is O(1) (same amount of time no matter how big the dictionary is), while checking if an item is in a list is O(n) (grows with the size of the list: even though computers are pretty fast, when you get to quite large database sizes, you'll notice a difference!). See https://www.geeksforgeeks.org/python/difference-between-list-and-dictionary-in-python/ for a beginner-friendly explanation, or https://wiki.python.org/moin/TimeComplexity for the official reference.
 
 In the future, you may learn the `pandas` library (and the `dataframe` data structure, which is sort of a hybrid of `lists` and `dictionaries`): you can do really fast lookup, but also sort stuff!
 
 ## Anatomy of a dictionary
 
-Dictionaries are not so different from... our dictionaries in real life. :) Basically *map* a bunch of **keys** (e.g., a word) to corresponding **values** (e.g., a definition). Another example is indices in the back of print books that map key terms to pages where that term shows up, or tags on websites, that map tags to webpages that include those tags.
+Dictionaries are not so different from a real-life dictionary book! You're associating **keys** to corresponding **values** much in the same way that a dictionary book associates a word to a definition.
 
 The key parts of a dictionary `literal` are:
 1. The `{ }` curly braces, which tell you and Python that it's a dictionary (similar to `""` for strings, or `[]` for lists)
@@ -132,12 +152,12 @@ The key parts of a dictionary `literal` are:
 Let's look at a simple example that maps letters to an example word that starts with the letter
 
 ```{code-cell} ipython3
-d = {
+my_dictionary = {
    'a': 'apple', # an entry that maps the value apple to the letter a
    'b': 'ball', # another entry that maps the value ball to the letter b
    'c': 'crayon'
 }
-d
+print(my_dictionary)
 ```
 
 Style note: the indentation inside the dictionary is more for readability. Python doesn't care, as long as there are commas between the dictionary entries.
@@ -175,53 +195,59 @@ Here are some key properties of a dictionary in Python:
 Similar to lists, dictionaries have **length**.
 
 ```{code-cell} ipython3
-d = {
+my_dictionary = {
    'a': 'apple', # an entry that maps the value apple to the letter a
    'b': 'ball', # another entry that maps the value ball to the letter b
    'c': 'crayon'
 }
-len(d)
+len(my_dictionary)
 ```
 
-#### Dictionaries do not have an order or indexing by position
+#### Dictionaries DO NOT have Order!
 
-Different from lists, dictionaries **do not have an order**. So you can't really sort a dictionary, or grab things by position. You grab things by... key!
+Different from lists, dictionaries **do not have an order**. So you can't really sort a dictionary, or grab things by position. You grab things by the key!
 
 ```{code-cell} ipython3
 :tags: [raises-exception]
 
 # can't get things by position
-d[0]
+my_dictionary[0]
 ```
 
 ```{code-cell} ipython3
 :tags: [raises-exception]
 
 # can't sort either
-d.sort()
+my_dictionary.sort()
 ```
 
 ```{code-cell} ipython3
-sorted(d) # this does *not* sort the dictionary; it returns a sorted list of the keys
+sorted(my_dictionary) # this does *not* sort the dictionary; it returns a sorted list of the keys.
 ```
 
-Though as we will see next week, you can sneakily get some order, because Python now allows you to actually iterate through a dictionary in the order that stuff was put into it. It's not reliable though! If you need your collection to have an actual sequence to it, don't use dictionaries!
+Though as we will see next week, you can sneakily get some order, because Python now allows you to actually iterate through a dictionary in the order that stuff was put into it. It's not reliable though! If you need your collection to have an actual sequence (order) to it, don't use dictionaries!
 
 #### All keys in a dictionary are unique
 
-Also, all keys in a dictionary have to be **unique**. This makes dictionaries handy for keeping track of unique items (in contrast to say, lists, where you can have duplicate entries).
+All keys in a dictionary have to be **unique**. This makes dictionaries handy for keeping track of unique items (in contrast to say, lists, where you can have duplicate entries).
 
-Values in the dictionary do *not* have to be unique, though: you can have different keys point to the same value, but not multiple values point to duplicate keys. There is a related data structure that has a similar property called `sets` if you're interested.
-
+Values in the dictionary do *not* have to be unique:
 ```{code-cell} ipython3
 d = {
-   'a': 'apple', # an entry that maps the value apple to the letter a
-   'b': 'ball', # another entry that maps the value ball to the letter b
+   'a': 'ball', # Set a to the value 'ball'
+   'b': 'ball', # Another entry that maps the value ball to the letter 'b'
    'c': 'crayon',
-   'a': 'animal',
-   'd': 'ball'
 }
-print(d) # oops, where did apple go? overwritten by the last a:animal entry since we can't have duplicate keys. d:ball is fine though, even though we already have b:ball.
+```
+
+If we include the same key multiple times, it will get the *last* value:
+
+```{code-cell} ipython3
+my_dictionary = {
+   'a': 'ball',
+   'a': 'animal', # Repeating the key of 'a'
+}
+print(my_dictionary.get("a")) # Gets the value 'animal'
 ```
 
 #### Dictionaries are mutable
@@ -266,9 +292,11 @@ students = {
 students
 ```
 
-#### Keys must be hashable
+#### Keys can be a lot of things, but must be hashable
 
-But **keys** need to be *hashable*.
+TLDR; try to limit your keys to simple data types like `str`, `float`, `int`, `bool`.
+
+Long Version: Keys need to be *hashable*.
 
 What does this mean?
 
@@ -305,13 +333,13 @@ d = {
 You can also start with an empty dictionary, and then add stuff later, programmatically or with other functions.
 
 ```{code-cell} ipython3
-emptyd = {} # dictionary with nothing in it
-emptyd = dict() # same thing
-print(emptyd)
-len(emptyd)
+empty_dictionary = {} # dictionary with nothing in it
+empty_dictionary = dict() # same thing
+print(empty_dictionary)
+len(empty_dictionary)
 ```
 
-**PRACTICE**: make a dictionary e that has the following entries: smith:A, chan:B, abuye:A+
+**PRACTICE**: make a dictionary e that has the following entries: `smith: A`, `chan: B`, `buye: A+`
 
 ```{code-cell} ipython3
 # your code here
@@ -416,7 +444,7 @@ d.update({'a': new_for_a, 'c': 'charming'})
 print(d)
 ```
 
-**PRACTICE**: how do you update d with new entry `h:hello`?
+**PRACTICE**: how do you update d with new entry `h: hello`?
 
 ```{code-cell} ipython3
 # your code here
