@@ -67,7 +67,7 @@ for item in index:
     if concept == queried_concept:
         chapters_with_queried_concept.append(chapter)
 
-print(results)
+print(chapters_with_queried_concept)
 ```
 
 And here is what *the query* might look like *with* dictionaries.
